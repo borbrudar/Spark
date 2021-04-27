@@ -3,8 +3,7 @@ using namespace sf;
 
 Player::Player()
 {
-	shape.setFillColor(Color::Red);
-	shape.setSize(Vector2f(50, 50));
+	box.setSize(Vector2f(50, 50));
 }
 
 void Player::handleInput(sf::Event& e)
@@ -25,14 +24,20 @@ void Player::handleInput(sf::Event& e)
 
 void Player::draw(sf::RenderWindow& window)
 {
-	window.draw(shape);
+	window.draw(box);
 }
 
-void Player::update(float delta)
+void Player::update(float delta, Vector2f scroll)
 {
-	pos = shape.getPosition();
-	vel.x = xdir * speed;
-	vel.y = ydir * speed;
-	pos += vel * delta;
-	shape.setPosition(pos);
+	Entity::update(delta, scroll);
+}
+
+void Player::resolveCollision()
+{
+	pos = prevPos;
+}
+
+Vector2i Player::getDir()
+{
+	return Vector2i(xdir,ydir);
 }
