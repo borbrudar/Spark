@@ -4,6 +4,7 @@ using namespace sf;
 Player::Player()
 {
 	box.setSize(Vector2f(50, 50));
+	pos = { 100,200 };
 }
 
 void Player::handleInput(sf::Event& e)
@@ -16,9 +17,9 @@ void Player::handleInput(sf::Event& e)
 	}
 	if (e.type == Event::KeyReleased) {
 		if (e.key.code == Keyboard::Up) ydir = 0;
-		else if (e.key.code == Keyboard::Down) ydir = 0;
+		if (e.key.code == Keyboard::Down) ydir = 0;
 		if (e.key.code == Keyboard::Left) xdir = 0;
-		else if (e.key.code == Keyboard::Right) xdir = 0;
+		if (e.key.code == Keyboard::Right) xdir = 0;
 	}
 }
 
@@ -30,11 +31,14 @@ void Player::draw(sf::RenderWindow& window)
 void Player::update(float delta, Vector2f scroll)
 {
 	Entity::update(delta, scroll);
+	prevPos = pos;
+	pos.y += gravity * delta;
 }
 
-void Player::resolveCollision()
+void Player::collideWith(Obstacle& o)
 {
-	pos = prevPos;
+	if (box.getGlobalBounds().intersects(o.getBoxBounds()))
+		pos = prevPos;
 }
 
 Vector2i Player::getDir()

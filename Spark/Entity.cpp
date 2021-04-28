@@ -16,3 +16,8 @@ void Entity::update(float delta, Vector2f scroll)
 	box.setPosition(pos);
 }
 
+sf::FloatRect Entity::getBoxBounds()
+{
+	return box.getGlobalBounds();
+}
+

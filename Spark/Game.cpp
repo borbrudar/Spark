@@ -3,7 +3,7 @@ using namespace sf;
 
 Game::Game()
 {
-	entities.push_back(std::make_unique<Obstacle>());
+	tiles.push_back(std::make_unique<Obstacle>());
 }
 
 void Game::handleInput(sf::Event& e)
@@ -16,12 +16,20 @@ void Game::handleInput(sf::Event& e)
 void Game::draw(sf::RenderWindow& window)
 {
 	player.draw(window);
-	for (int i = 0; i < entities.size(); i++) entities[i]->draw(window);
+	for (int i = 0; i < tiles.size(); i++) tiles[i]->draw(window);
 }
 
 void Game::update(float delta)
 {
 	player.update(delta, Vector2f(0,0));
-	for (int i = 0; i < entities.size(); i++)
-		entities[i]->update(delta, scroll);
+	for (int i = 0; i < tiles.size(); i++)
+		tiles[i]->update(delta, scroll);
+
+	checkCollision(delta);
+}
+
+void Game::checkCollision(float delta)
+{
+	for (int i = 0; i < tiles.size(); i++)
+		player.collideWith(*tiles[i]);
 }

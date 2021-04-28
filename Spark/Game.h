@@ -14,8 +14,10 @@ public:
 	void draw(sf::RenderWindow& window);
 	void update(float delta);
 private:
+	void checkCollision(float delta);
+
 	Player player;
-	std::vector<std::unique_ptr<Entity>> entities;
+	std::vector<std::unique_ptr<Obstacle>> tiles;
 	double scrollSpeed = 250.f;
 	sf::Vector2f scroll;
 };
