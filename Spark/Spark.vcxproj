@@ -142,8 +142,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Editor.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="ImmovableEntity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -153,8 +156,11 @@
     <ClCompile Include="Spark.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Editor.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="PlayState.h" />
     <ClInclude Include="ImmovableEntity.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MovableEntity.h" />

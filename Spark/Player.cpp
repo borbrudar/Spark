@@ -23,16 +23,10 @@ void Player::handleInput(sf::Event& e)
 	}
 }
 
-void Player::draw(sf::RenderWindow& window)
-{
-	window.draw(box);
-}
-
 void Player::update(float delta, Vector2f scroll)
 {
 	Entity::update(delta, scroll);
 	MovableEntity::update(delta, scroll);
-	pos.y += gravity * delta;
 }
 
 Vector2i Player::getDir()

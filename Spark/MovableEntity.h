@@ -6,6 +6,7 @@ class MovableEntity : public Entity {
 public:
 	virtual void update(float delta,sf::Vector2f scroll) override;
 	void resolveCollisionWithImmovable(ImmovableEntity &e);
-private:
+protected:
 	sf::Vector2f prevPos;
+	float speed = 250.f, gravity = 45.f;
 };

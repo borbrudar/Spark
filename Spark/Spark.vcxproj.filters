@@ -23,6 +23,12 @@
     <Filter Include="MainState\Game\Entity\Immovable">
       <UniqueIdentifier>{2d78aa32-5174-4841-ba87-38ff4376ed4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MainState\Game\PlayState">
+      <UniqueIdentifier>{349359f9-f0d3-4205-b3a1-dc00e93abac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\Editor">
+      <UniqueIdentifier>{db37ce63-e2b2-4143-af9c-b7394791916e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp">
@@ -46,11 +52,20 @@
     <ClCompile Include="Spark.cpp">
       <Filter>MainState</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>MainState\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>MainState\Game\PlayState</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>MainState\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>MainState\Menu</Filter>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>MainState\Game\Entity\Movable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,11 +90,20 @@
     <ClInclude Include="State.h">
       <Filter>MainState</Filter>
     </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>MainState\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>MainState\Game\PlayState</Filter>
+    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>MainState\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>MainState\Menu</Filter>
+    <ClInclude Include="Editor.h">
+      <Filter>MainState\Game\Editor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 Spark::Spark()
 {
 	window.create(sf::VideoMode(640, 480), "Spark");
-	state.push_back(std::make_unique<Game>());
+	state.push_back(std::make_unique<PlayState>());
 }
 
 void Spark::run()

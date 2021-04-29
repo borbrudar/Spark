@@ -6,7 +6,7 @@ public:
 	Entity();
 	bool overlaps(const Entity& other);
 	virtual void update(float delta, sf::Vector2f scroll);
-	virtual void draw(sf::RenderWindow& window) = 0;
+	virtual void draw(sf::RenderWindow& window);
 	sf::FloatRect getBoxBounds();
 protected:
 	sf::RectangleShape box;

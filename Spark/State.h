@@ -1,7 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-
 class State {
 public:
 	virtual void handleInput(sf::Event &e) = 0;

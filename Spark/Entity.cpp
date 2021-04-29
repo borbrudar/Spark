@@ -16,6 +16,11 @@ void Entity::update(float delta, Vector2f scroll)
 	box.setPosition(pos);
 }
 
+void Entity::draw(sf::RenderWindow& window)
+{
+	window.draw(box);
+}
+
 sf::FloatRect Entity::getBoxBounds()
 {
 	return box.getGlobalBounds();
