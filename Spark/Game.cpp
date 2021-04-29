@@ -3,7 +3,7 @@ using namespace sf;
 
 Game::Game()
 {
-	tiles.push_back(std::make_unique<Obstacle>());
+	tiles.push_back(std::make_unique<Tile>());
 }
 
 void Game::handleInput(sf::Event& e)
@@ -30,6 +30,7 @@ void Game::update(float delta)
 
 void Game::checkCollision(float delta)
 {
-	for (int i = 0; i < tiles.size(); i++)
-		player.collideWith(*tiles[i]);
+	for (int i = 0; i < tiles.size(); i++) {
+		player.resolveCollisionWithImmovable(*tiles[i]);
+	}
 }

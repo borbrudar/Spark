@@ -1,9 +1,9 @@
 #pragma once
-#include "Entity.h"
+#include "ImmovableEntity.h"
 
-class Obstacle : public Entity {
+class Tile : public ImmovableEntity {
 public:
-	Obstacle();
+	Tile();
 	void update(float delta, sf::Vector2f scroll) override;
 	void draw(sf::RenderWindow& window) override;
 };

@@ -3,7 +3,7 @@
 Spark::Spark()
 {
 	window.create(sf::VideoMode(640, 480), "Spark");
-	gameState.push_back(std::make_unique<Game>());
+	state.push_back(std::make_unique<Game>());
 }
 
 void Spark::run()
@@ -20,13 +20,13 @@ void Spark::handleInput()
 	while (window.pollEvent(e)) {
 		if (e.type == sf::Event::Closed) window.close();
 	}
-	gameState[0]->handleInput(e);
+	state[0]->handleInput(e);
 }
 
 void Spark::draw()
 {
 	window.clear();
-	gameState[0]->draw(window);
+	state[0]->draw(window);
 	window.display();
 }
 
@@ -40,7 +40,7 @@ void Spark::update()
 	while (frameTime > 0.0)
 	{
 		float deltaTime = std::min(frameTime, dt);
-		gameState[0]->update(deltaTime);
+		state[0]->update(deltaTime);
 		frameTime -= deltaTime;
 	}
 

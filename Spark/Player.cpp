@@ -31,14 +31,8 @@ void Player::draw(sf::RenderWindow& window)
 void Player::update(float delta, Vector2f scroll)
 {
 	Entity::update(delta, scroll);
-	prevPos = pos;
+	MovableEntity::update(delta, scroll);
 	pos.y += gravity * delta;
-}
-
-void Player::collideWith(Obstacle& o)
-{
-	if (box.getGlobalBounds().intersects(o.getBoxBounds()))
-		pos = prevPos;
 }
 
 Vector2i Player::getDir()

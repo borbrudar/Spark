@@ -1,12 +1,12 @@
 #pragma once
-#include "GameState.h"
+#include "State.h"
 #include "Entity.h"
 #include "Player.h"
-#include "Obstacle.h"
+#include "Tile.h"
 #include <vector>
 
 
-class Game : public GameState{
+class Game : public State{
 public:
 	Game();
 
@@ -17,7 +17,7 @@ private:
 	void checkCollision(float delta);
 
 	Player player;
-	std::vector<std::unique_ptr<Obstacle>> tiles;
+	std::vector<std::unique_ptr<Tile>> tiles;
 	double scrollSpeed = 250.f;
 	sf::Vector2f scroll;
 };

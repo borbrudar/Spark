@@ -1,5 +1,5 @@
 #pragma once
-#include "GameState.h"
+#include "State.h"
 #include "Game.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -16,7 +16,7 @@ private:
 	sf::RenderWindow window;
 	sf::Event e;
 
-	std::vector<std::unique_ptr<GameState>> gameState;
+	std::vector<std::unique_ptr<State>> state;
 	//timestep
 	sf::Clock clock;
 	double dt = 1 / 60.f, currentTime = clock.getElapsedTime().asSeconds();

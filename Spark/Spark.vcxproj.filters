@@ -1,57 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="MainState">
+      <UniqueIdentifier>{a30c8177-a080-4025-b5ef-d79a923c359a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Menu">
+      <UniqueIdentifier>{6f627c42-4a2d-4efd-b86d-30fc3e5edc2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game">
+      <UniqueIdentifier>{90502fb7-e147-4bb9-9484-2f3e28c0e382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\Entity">
+      <UniqueIdentifier>{8f966f40-56bd-4c01-85bb-fe5311659d4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\Entity\Movable">
+      <UniqueIdentifier>{5ce1b4ae-deb2-47a1-ac7f-49b9ba45c76b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\Entity\Immovable">
+      <UniqueIdentifier>{2d78aa32-5174-4841-ba87-38ff4376ed4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Entity.cpp">
+      <Filter>MainState\Game\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Spark.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MovableEntity.cpp">
+      <Filter>MainState\Game\Entity\Movable</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>MainState\Game\Entity\Movable</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ImmovableEntity.cpp">
+      <Filter>MainState\Game\Entity\Immovable</Filter>
     </ClCompile>
-    <ClCompile Include="Obstacle.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Tile.cpp">
+      <Filter>MainState\Game\Entity\Immovable</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>MainState</Filter>
+    </ClCompile>
+    <ClCompile Include="Spark.cpp">
+      <Filter>MainState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>MainState\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>MainState\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Spark.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Entity.h">
+      <Filter>MainState\Game\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="MovableEntity.h">
+      <Filter>MainState\Game\Entity\Movable</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+      <Filter>MainState\Game\Entity\Movable</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Tile.h">
+      <Filter>MainState\Game\Entity\Immovable</Filter>
     </ClInclude>
-    <ClInclude Include="Obstacle.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ImmovableEntity.h">
+      <Filter>MainState\Game\Entity\Immovable</Filter>
+    </ClInclude>
+    <ClInclude Include="Spark.h">
+      <Filter>MainState</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>MainState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>MainState\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>MainState\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
