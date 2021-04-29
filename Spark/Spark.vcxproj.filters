@@ -67,6 +67,16 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>MainState\Game\Entity\Movable</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerJumping.cpp">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerOnGround.cpp">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -104,6 +114,18 @@
     </ClInclude>
     <ClInclude Include="Editor.h">
       <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerOnGround.h">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumping.h">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionBox.h">
+      <Filter>MainState\Game\Entity\Movable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

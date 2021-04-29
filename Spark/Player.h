@@ -1,6 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "MovableEntity.h"
+#include "PlayerState.h"
+#include "PlayerJumping.h"
+#include "PlayerOnGround.h"
 
 class Player : public MovableEntity {
 public:
@@ -9,5 +12,5 @@ public:
 	void update(float delta, sf::Vector2f scroll) override;
 	sf::Vector2i getDir();
 private:
-	int xdir = 0, ydir = 0;
+	std::unique_ptr<PlayerState> playerState;
 };

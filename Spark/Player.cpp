@@ -3,24 +3,14 @@ using namespace sf;
 
 Player::Player()
 {
+	playerState = std::make_unique<PlayerJumping>();
 	box.setSize(Vector2f(50, 50));
 	pos = { 100,200 };
 }
 
 void Player::handleInput(sf::Event& e)
 {
-	if (e.type == Event::KeyPressed) {
-		if (e.key.code == Keyboard::Up) ydir = -1;
-		if (e.key.code == Keyboard::Down) ydir = 1;
-		if (e.key.code == Keyboard::Left) xdir = -1;
-		if (e.key.code == Keyboard::Right) xdir = 1;
-	}
-	if (e.type == Event::KeyReleased) {
-		if (e.key.code == Keyboard::Up) ydir = 0;
-		if (e.key.code == Keyboard::Down) ydir = 0;
-		if (e.key.code == Keyboard::Left) xdir = 0;
-		if (e.key.code == Keyboard::Right) xdir = 0;
-	}
+	playerState->handleInput(e);
 }
 
 void Player::update(float delta, Vector2f scroll)
@@ -31,5 +21,5 @@ void Player::update(float delta, Vector2f scroll)
 
 Vector2i Player::getDir()
 {
-	return Vector2i(xdir,ydir);
+	return playerState->getDir();
 }
