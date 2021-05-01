@@ -18,6 +18,7 @@ void CollisionBox::create(sf::Vector2f pos, sf::Vector2f size)
 
 void CollisionBox::update(sf::Vector2f newPos)
 {
+	prevPos = pos;
 	pos = newPos;
 
 	box[0].setPosition(pos);
@@ -29,6 +30,11 @@ void CollisionBox::update(sf::Vector2f newPos)
 void CollisionBox::draw(sf::RenderWindow& window)
 {
 	for (int i = 0; i < box.size(); i++) window.draw(box[i]);
+}
+
+void CollisionBox::defaultResolveCollision()
+{
+	pos = prevPos;
 }
 
 collisionType CollisionBox::checkCollision(CollisionBox& other)

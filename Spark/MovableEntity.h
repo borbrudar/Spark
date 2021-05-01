@@ -1,12 +1,12 @@
 #pragma once
-#include "Entity.h"
-#include "ImmovableEntity.h"
+#include "Interactive.h"
+#include "CollisionBox.h"
 
-class MovableEntity : public Entity {
+class MovableEntity : public Interactive {
 public:
 	virtual void update(float delta,sf::Vector2f scroll) override;
-	void resolveCollisionWithImmovable(ImmovableEntity &e);
 protected:
-	sf::Vector2f prevPos;
-	float speed = 250.f, gravity = 45.f;
+	CollisionBox box;
+	float speed = 250.f, gravity = 50.f;
+	const float constGravity = 50.f, constSpeed = 250.f;
 };

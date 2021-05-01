@@ -2,14 +2,16 @@
 using namespace sf;
 Enemy::Enemy()
 {
-	box.setFillColor(Color::Blue);
-	box.setSize({ 50, 50 });
+	ID = ID::enemy;
 	pos = { 500,100 };
+	box.create(pos, { 50,50 });
+	temp.setSprite(pos, { 50,50 }, Color::Blue);
 }
 
 void Enemy::update(float delta, sf::Vector2f scroll)
 {
 	Entity::update(delta, scroll);
+	Interactive::update(delta, scroll);
 	MovableEntity::update(delta, scroll);
 	pos.x -= 30 * delta;
 }

@@ -147,6 +147,8 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Interactive.cpp" />
+    <ClCompile Include="ISprite.cpp" />
     <ClCompile Include="PlayerJumping.cpp" />
     <ClCompile Include="PlayerOnGround.cpp" />
     <ClCompile Include="PlayerState.cpp" />
@@ -161,10 +163,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionBox.h" />
+    <ClInclude Include="CollisionInfo.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Interactive.h" />
+    <ClInclude Include="ISprite.h" />
     <ClInclude Include="PlayerJumping.h" />
     <ClInclude Include="PlayerOnGround.h" />
     <ClInclude Include="PlayerState.h" />

@@ -3,9 +3,11 @@ using namespace sf;
 
 Player::Player()
 {
+	ID = ID::player;
 	playerState = std::make_unique<PlayerJumping>();
-	box.setSize(Vector2f(50, 50));
 	pos = { 100,200 };
+	box.create(pos, { 50,50 });
+	temp.setSprite(pos, { 50,50 }, Color::Red);
 }
 
 void Player::handleInput(sf::Event& e)

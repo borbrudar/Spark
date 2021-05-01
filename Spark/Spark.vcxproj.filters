@@ -77,6 +77,8 @@
       <Filter>MainState\Game\Entity\Movable</Filter>
     </ClCompile>
     <ClCompile Include="CollisionBox.cpp" />
+    <ClCompile Include="ISprite.cpp" />
+    <ClCompile Include="Interactive.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -126,6 +128,15 @@
     </ClInclude>
     <ClInclude Include="CollisionBox.h">
       <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClInclude>
+    <ClInclude Include="Interactive.h">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionInfo.h">
+      <Filter>MainState\Game\Entity\Movable</Filter>
+    </ClInclude>
+    <ClInclude Include="ISprite.h">
+      <Filter>MainState\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

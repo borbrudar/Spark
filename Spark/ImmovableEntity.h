@@ -1,6 +1,6 @@
 #pragma once
-#include "Entity.h"
+#include "Interactive.h"
 
-class ImmovableEntity : public Entity {
+class ImmovableEntity : public Interactive {
 public:
 };
