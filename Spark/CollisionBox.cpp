@@ -1,5 +1,6 @@
 #include "CollisionBox.h"
 using namespace sf;
+
 void CollisionBox::create(sf::Vector2f pos, sf::Vector2f size)
 {
 	this->pos = pos; this->size = size;
@@ -43,10 +44,17 @@ void CollisionBox::move(sf::Vector2f by)
 
 collisionType CollisionBox::checkCollision(CollisionBox& other)
 {
-	if (other.box[0].getGlobalBounds().intersects(box[1].getGlobalBounds())) return collisionType::right;
-	if (other.box[1].getGlobalBounds().intersects(box[0].getGlobalBounds())) return collisionType::left;
-	if (other.box[2].getGlobalBounds().intersects(box[3].getGlobalBounds())) return collisionType::bottom;
-	if (other.box[3].getGlobalBounds().intersects(box[2].getGlobalBounds())) return collisionType::top;
+	if (other.box[0].getGlobalBounds().intersects(box[1].getGlobalBounds())) {
+		return collisionType::right;
+	}
+	if (other.box[1].getGlobalBounds().intersects(box[0].getGlobalBounds())) {
+		return collisionType::left;
+	}
+	if (other.box[2].getGlobalBounds().intersects(box[3].getGlobalBounds())) {
+		return collisionType::top;
+	}
+	if (other.box[3].getGlobalBounds().intersects(box[2].getGlobalBounds())) { 
+		return collisionType::bottom; }
 
 	return collisionType::none;
 }

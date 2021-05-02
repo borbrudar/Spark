@@ -4,3 +4,8 @@ void Interactive::update(float delta, sf::Vector2f scroll)
 {
 	box.update(pos);
 }
+
+CollisionBox& Interactive::getCollisionBox()
+{
+	return box;
+}

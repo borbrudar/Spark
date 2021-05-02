@@ -23,6 +23,15 @@ void PlayerState::draw(sf::RenderWindow& window)
 	playerSprite.draw(window);
 }
 
+void PlayerState::checkCollision(Interactive& e)
+{
+	collisionType temp = box.checkCollision(e.getCollisionBox());
+	if (temp != collisionType::none) {
+		lastColType = temp;
+		lastCol = std::make_unique<Interactive>(e);
+	}
+}
+
 sf::Vector2i PlayerState::getDir()
 {
 	return sf::Vector2i(xdir,ydir);

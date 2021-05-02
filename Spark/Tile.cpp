@@ -10,5 +10,6 @@ Tile::Tile()
 void Tile::update(float delta, Vector2f scroll)
 {
 	Entity::update(delta, scroll);
+	box.update(pos);
 }
 

@@ -11,6 +11,7 @@ public:
 	}
 	//updates collision box
 	virtual void update(float delta, sf::Vector2f scroll);
+	CollisionBox& getCollisionBox();
 protected:
 	ID ID;
 	CollisionBox box;

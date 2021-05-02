@@ -13,12 +13,20 @@ void Player::handleInput(sf::Event& e)
 
 void Player::update(float delta)
 {
-	playerState->update(delta);
+	auto temp = playerState->update(delta);
+	if (temp) {
+		playerState = std::move(temp);
+	}
 }
 
 void Player::draw(sf::RenderWindow& window)
 {
 	playerState->draw(window);
+}
+
+void Player::checkCollision(Interactive& e)
+{
+	playerState->checkCollision(e);
 }
 
 Vector2i Player::getDir()
