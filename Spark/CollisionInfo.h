@@ -18,6 +18,7 @@ enum class collisionType {
 
 class CollisionInfo {
 public:
+	void inline resetInfo() { type = collisionType::none; };
 	ID senderID;
 	collisionType type;
 };

@@ -9,6 +9,6 @@ void PlayerJumping::draw(sf::RenderWindow& window)
 {
 }
 
-void PlayerJumping::update(float delta, sf::Vector2f scroll, Player& p)
+void PlayerJumping::update(float delta, sf::Vector2f scroll, CollisionInfo &info)
 {
 }

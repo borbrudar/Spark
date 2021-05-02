@@ -10,6 +10,8 @@ std::unique_ptr<PlayerState> PlayerState::handleInput(sf::Event& e)
 		if (e.key.code == Keyboard::Left) xdir = 0;
 		if (e.key.code == Keyboard::Right) xdir = 0;
 	}
+
+	return nullptr;
 }
 
 sf::Vector2i PlayerState::getDir()

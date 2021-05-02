@@ -34,7 +34,7 @@ void PlayState::update(float delta)
 void PlayState::checkCollision(float delta)
 {
 	for (int i = 0; i < tiles.size(); i++) {
-		player.resolveCollisionWithImmovable(*tiles[i]);
-		for (int j = 0; j < enemies.size(); j++) enemies[j]->resolveCollisionWithImmovable(*tiles[i]);
+		player.defaultResolveCollision(*tiles[i]);
+		for (int j = 0; j < enemies.size(); j++) enemies[j]->defaultResolveCollision(*tiles[i]);
 	}
 }
