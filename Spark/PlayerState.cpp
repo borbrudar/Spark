@@ -2,14 +2,17 @@
 using namespace sf;
 PlayerState::PlayerState()
 {
-	box.create({ 100,100 }, { 50,50 });
-	playerSprite.setSprite({ 100,100 }, { 50,50 }, Color::Red);
+	box.create(pos, size);
+	playerSprite.setSprite(pos, size, Color::Red);
 }
 void PlayerState::handleInput(sf::Event& e)
 {
 	if (e.type == Event::KeyPressed) {
 		if (e.key.code == Keyboard::Left) xdir = -1;
 		if (e.key.code == Keyboard::Right) xdir = 1;
+		if (e.key.code == Keyboard::Up) {
+			ydir = 1;
+		}
 	}
 	if (e.type == Event::KeyReleased) {
 		if (e.key.code == Keyboard::Left) xdir = 0;
@@ -19,7 +22,7 @@ void PlayerState::handleInput(sf::Event& e)
 
 void PlayerState::draw(sf::RenderWindow& window)
 {
-	playerSprite.updatePos(box.getPos());
+	playerSprite.updatePos(pos);
 	playerSprite.draw(window);
 }
 
@@ -34,10 +37,15 @@ void PlayerState::checkCollision(Interactive& e)
 
 sf::Vector2i PlayerState::getDir()
 {
-	return sf::Vector2i(xdir,ydir);
+	return sf::Vector2i(xdir,0);
 }
 
 void PlayerState::applyGravity(float delta)
 {
-	box.move(0, gravity * delta);
+	pos.y += gravity * delta;
+}
+
+void PlayerState::updateBoxPosition()
+{
+	box.setPosition(pos);
 }

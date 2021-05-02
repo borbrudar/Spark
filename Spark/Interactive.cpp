@@ -2,7 +2,7 @@
 
 void Interactive::update(float delta, sf::Vector2f scroll)
 {
-	box.update(pos);
+	box.setPosition(pos);
 }
 
 CollisionBox& Interactive::getCollisionBox()

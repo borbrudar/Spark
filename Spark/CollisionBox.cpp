@@ -17,7 +17,7 @@ void CollisionBox::create(sf::Vector2f pos, sf::Vector2f size)
 	for (int i = 0; i < box.size(); i++) box[i].setFillColor(Color::Red);
 }
 
-void CollisionBox::update(sf::Vector2f newPos)
+void CollisionBox::setPosition(sf::Vector2f newPos)
 {
 	prevPos = pos;
 	pos = newPos;

@@ -14,7 +14,7 @@ enum class collisionType {
 class CollisionBox {
 public:
 	void create(sf::Vector2f pos, sf::Vector2f size);
-	void update(sf::Vector2f newPos);
+	void setPosition(sf::Vector2f newPos);
 	void draw(sf::RenderWindow& window);
 	void defaultResolveCollision();
 	void move(sf::Vector2f by);
