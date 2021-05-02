@@ -3,6 +3,7 @@
 
 class MovableEntity : public Interactive {
 public:
+	//adds gravity
 	virtual void update(float delta,sf::Vector2f scroll) override;
 protected:
 	float speed = 250.f, gravity = 50.f;

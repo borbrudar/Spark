@@ -18,6 +18,7 @@ void Player::handleInput(sf::Event& e)
 void Player::update(float delta, Vector2f scroll)
 {
 	Entity::update(delta, scroll);
+	Interactive::update(delta, scroll);
 	MovableEntity::update(delta, scroll);
 }
 

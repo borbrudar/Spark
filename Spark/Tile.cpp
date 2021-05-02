@@ -6,6 +6,7 @@ Tile::Tile()
 	temp.setSprite(pos, { 150,50 }, Color::Green);
 	box.create(pos, { 150,50 });
 }
+
 void Tile::update(float delta, Vector2f scroll)
 {
 	Entity::update(delta, scroll);

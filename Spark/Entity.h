@@ -4,7 +4,8 @@
 
 class Entity {
 public:
-	Entity();
+	Entity() = default;
+	//adds scrolling and sprite update
 	virtual void update(float delta, sf::Vector2f scroll);
 	virtual void draw(sf::RenderWindow& window);
 protected:

@@ -9,6 +9,7 @@ public:
 	void inline defaultResolveCollision(Interactive& i) {
 		box.checkCollision(i.box);
 	}
+	//updates collision box
 	virtual void update(float delta, sf::Vector2f scroll);
 protected:
 	ID ID;
