@@ -3,7 +3,6 @@
 
 class PlayerOnGround : public PlayerState {
 public:
-	virtual std::unique_ptr<PlayerState> handleInput(sf::Event& e);
-	virtual void draw(sf::RenderWindow& window) override;
-	virtual void update(float delta, sf::Vector2f scroll, CollisionInfo& info);
+	virtual void handleInput(sf::Event& e) override;
+	virtual std::unique_ptr<PlayerState> update(float delta) override;
 };

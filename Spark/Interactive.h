@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "CollisionBox.h"
-#include "CollisionInfo.h"
+#include "ID.h"
 #include "ISprite.h"
 
 class Interactive : public Entity {

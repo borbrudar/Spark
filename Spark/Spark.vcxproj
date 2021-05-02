@@ -163,11 +163,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionBox.h" />
-    <ClInclude Include="CollisionInfo.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="ID.h" />
     <ClInclude Include="Interactive.h" />
     <ClInclude Include="ISprite.h" />
     <ClInclude Include="PlayerJumping.h" />

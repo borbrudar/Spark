@@ -20,11 +20,7 @@ void CollisionBox::update(sf::Vector2f newPos)
 {
 	prevPos = pos;
 	pos = newPos;
-
-	box[0].setPosition(pos);
-	box[1].setPosition(pos.x + size.x, pos.y);
-	box[2].setPosition(pos);
-	box[3].setPosition(pos.x, pos.y + size.y);
+	updateBoxes();
 }
 
 void CollisionBox::draw(sf::RenderWindow& window)
@@ -37,6 +33,14 @@ void CollisionBox::defaultResolveCollision()
 	pos = prevPos;
 }
 
+void CollisionBox::move(sf::Vector2f by)
+{
+	prevPos = pos;
+	pos += by;
+	updateBoxes();
+}
+
+
 collisionType CollisionBox::checkCollision(CollisionBox& other)
 {
 	if (other.box[0].getGlobalBounds().intersects(box[1].getGlobalBounds())) return collisionType::right;
@@ -45,4 +49,17 @@ collisionType CollisionBox::checkCollision(CollisionBox& other)
 	if (other.box[3].getGlobalBounds().intersects(box[2].getGlobalBounds())) return collisionType::top;
 
 	return collisionType::none;
+}
+
+sf::Vector2f CollisionBox::getPos()
+{
+	return pos;
+}
+
+void CollisionBox::updateBoxes()
+{
+	box[0].setPosition(pos);
+	box[1].setPosition(pos.x + size.x, pos.y);
+	box[2].setPosition(pos);
+	box[3].setPosition(pos.x, pos.y + size.y);
 }

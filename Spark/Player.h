@@ -5,11 +5,12 @@
 #include "PlayerJumping.h"
 #include "PlayerOnGround.h"
 
-class Player : public MovableEntity {
+class Player {
 public:
 	Player();
 	void handleInput(sf::Event& e);
-	void update(float delta, sf::Vector2f scroll) override;
+	void update(float delta);
+	void draw(sf::RenderWindow& window);
 	sf::Vector2i getDir();
 private:
 	std::unique_ptr<PlayerState> playerState;

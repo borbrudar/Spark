@@ -1,14 +1,12 @@
 #include "PlayerJumping.h"
 
-std::unique_ptr<PlayerState> PlayerJumping::handleInput(sf::Event& e)
+void PlayerJumping::handleInput(sf::Event& e)
 {
     return PlayerState::handleInput(e);
 }
 
-void PlayerJumping::draw(sf::RenderWindow& window)
+std::unique_ptr<PlayerState> PlayerJumping::update(float delta)
 {
-}
-
-void PlayerJumping::update(float delta, sf::Vector2f scroll, CollisionInfo &info)
-{
+    applyGravity(delta);
+    return nullptr;
 }
