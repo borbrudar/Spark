@@ -2,7 +2,7 @@
 
 std::unique_ptr<PlayerState> PlayerJumping::handleInput(sf::Event& e)
 {
-    return std::unique_ptr<PlayerState>();
+    return PlayerState::handleInput(e);
 }
 
 void PlayerJumping::draw(sf::RenderWindow& window)

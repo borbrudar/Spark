@@ -14,37 +14,37 @@
     <Filter Include="MainState\Game">
       <UniqueIdentifier>{90502fb7-e147-4bb9-9484-2f3e28c0e382}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MainState\Game\Entity">
-      <UniqueIdentifier>{8f966f40-56bd-4c01-85bb-fe5311659d4a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MainState\Game\Entity\Movable">
-      <UniqueIdentifier>{5ce1b4ae-deb2-47a1-ac7f-49b9ba45c76b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MainState\Game\Entity\Immovable">
-      <UniqueIdentifier>{2d78aa32-5174-4841-ba87-38ff4376ed4d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MainState\Game\PlayState">
       <UniqueIdentifier>{349359f9-f0d3-4205-b3a1-dc00e93abac4}</UniqueIdentifier>
     </Filter>
     <Filter Include="MainState\Game\Editor">
       <UniqueIdentifier>{db37ce63-e2b2-4143-af9c-b7394791916e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity">
+      <UniqueIdentifier>{8f966f40-56bd-4c01-85bb-fe5311659d4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity\Movable">
+      <UniqueIdentifier>{5ce1b4ae-deb2-47a1-ac7f-49b9ba45c76b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity\Immovable">
+      <UniqueIdentifier>{2d78aa32-5174-4841-ba87-38ff4376ed4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity\Movable\Player">
+      <UniqueIdentifier>{66a90507-0c45-4e42-a8de-ef0f4c2454f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp">
-      <Filter>MainState\Game\Entity</Filter>
+      <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClCompile>
     <ClCompile Include="MovableEntity.cpp">
-      <Filter>MainState\Game\Entity\Movable</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClCompile>
     <ClCompile Include="ImmovableEntity.cpp">
-      <Filter>MainState\Game\Entity\Immovable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Immovable</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
-      <Filter>MainState\Game\Entity\Immovable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Immovable</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>MainState</Filter>
@@ -65,42 +65,42 @@
       <Filter>MainState\Game</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>MainState\Game\Entity\Movable</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerJumping.cpp">
-      <Filter>MainState\Game\Entity\Movable</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerOnGround.cpp">
-      <Filter>MainState\Game\Entity\Movable</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerState.cpp">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClCompile>
     <ClCompile Include="CollisionBox.cpp">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClCompile>
     <ClCompile Include="Interactive.cpp">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClCompile>
     <ClCompile Include="ISprite.cpp">
       <Filter>MainState\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumping.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerOnGround.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
-      <Filter>MainState\Game\Entity</Filter>
+      <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClInclude>
     <ClInclude Include="MovableEntity.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
-      <Filter>MainState\Game\Entity\Immovable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Immovable</Filter>
     </ClInclude>
     <ClInclude Include="ImmovableEntity.h">
-      <Filter>MainState\Game\Entity\Immovable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Immovable</Filter>
     </ClInclude>
     <ClInclude Include="Spark.h">
       <Filter>MainState</Filter>
@@ -112,7 +112,7 @@
       <Filter>MainState\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClInclude>
     <ClInclude Include="PlayState.h">
       <Filter>MainState\Game\PlayState</Filter>
@@ -123,26 +123,29 @@
     <ClInclude Include="Editor.h">
       <Filter>MainState\Game\Editor</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerState.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerOnGround.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerJumping.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionBox.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClInclude>
     <ClInclude Include="Interactive.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClInclude>
     <ClInclude Include="CollisionInfo.h">
-      <Filter>MainState\Game\Entity\Movable</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClInclude>
     <ClInclude Include="ISprite.h">
       <Filter>MainState\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumping.h">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerOnGround.h">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
