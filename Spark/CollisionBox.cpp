@@ -4,14 +4,14 @@ using namespace sf;
 void CollisionBox::create(sf::Vector2f pos, sf::Vector2f size)
 {
 	this->pos = pos; this->size = size;
-	box.push_back(RectangleShape({ 1, size.y }));
+	box.push_back(RectangleShape({ 3, size.y }));
 	box.back().setPosition(pos);
-	box.push_back(RectangleShape({ 1,size.y }));
+	box.push_back(RectangleShape({ 3,size.y }));
 	box.back().setPosition(pos.x + size.y,pos.y);
 
-	box.push_back(RectangleShape({ size.x,1 }));
+	box.push_back(RectangleShape({ size.x,4 }));
 	box.back().setPosition(pos);
-	box.push_back(RectangleShape({ size.x,1 }));
+	box.push_back(RectangleShape({ size.x,5 }));
 	box.back().setPosition(pos.x,pos.y + size.y);
 
 	for (int i = 0; i < box.size(); i++) box[i].setFillColor(Color::Red);

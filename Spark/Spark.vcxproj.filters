@@ -147,5 +147,8 @@
     <ClInclude Include="ID.h">
       <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerFalling.h">
+      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

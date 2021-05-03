@@ -4,6 +4,7 @@
 #include "CollisionBox.h"
 #include "Interactive.h"
 
+
 class PlayerState {
 public:
 	PlayerState();
@@ -22,11 +23,11 @@ protected:
 	ISprite playerSprite;
 	ID ID = ID::player;
 	int xdir = 0, ydir = 0;
-	sf::Vector2f pos{ 100,100 }, size{ 50,50 }, vel{ 0,0 };
+	static sf::Vector2f pos, size, vel;
 
 	std::unique_ptr<Interactive> lastCol;
-	collisionType lastColType = collisionType::none;
+	static collisionType lastColType;
 
-	const float constGrav = 80.f;
-	float gravity = 80.f;
+	const float constGrav = 90.f;
+	float gravity = 90.f;
 };

@@ -1,10 +1,18 @@
 #include "PlayerState.h"
 using namespace sf;
+
+sf::Vector2f PlayerState::pos = sf::Vector2f(100, 100), PlayerState::size = sf::Vector2f(50, 50),
+PlayerState::vel = sf::Vector2f(0, 0);
+
+collisionType PlayerState::lastColType = collisionType::none;
+
 PlayerState::PlayerState()
 {
 	box.create(pos, size);
 	playerSprite.setSprite(pos, size, Color::Red);
 }
+
+
 void PlayerState::handleInput(sf::Event& e)
 {
 	if (e.type == Event::KeyPressed) {

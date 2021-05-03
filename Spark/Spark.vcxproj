@@ -170,6 +170,7 @@
     <ClInclude Include="ID.h" />
     <ClInclude Include="Interactive.h" />
     <ClInclude Include="ISprite.h" />
+    <ClInclude Include="PlayerFalling.h" />
     <ClInclude Include="PlayerJumping.h" />
     <ClInclude Include="PlayerOnGround.h" />
     <ClInclude Include="PlayerState.h" />
