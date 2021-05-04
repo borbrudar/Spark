@@ -3,15 +3,14 @@ using namespace sf;
 
 PlayState::PlayState()
 {
-	tiles.push_back(std::make_unique<Tile>());
+	tiles.push_back(std::make_unique<Tile>(sf::Vector2f(50,400 )));
+	tiles.push_back(std::make_unique<Tile>(sf::Vector2f(200, 350)));
 	//enemies.push_back(std::make_unique<Enemy>());
 }
 
 void PlayState::handleInput(sf::Event& e)
 {
 	player.handleInput(e);
-	scroll.x = -player.getDir().x * scrollSpeed;
-	scroll.y = -player.getDir().y * scrollSpeed;
 }
 
 void PlayState::draw(sf::RenderWindow& window)
@@ -24,6 +23,9 @@ void PlayState::draw(sf::RenderWindow& window)
 void PlayState::update(float delta)
 {
 	player.update(delta);
+	scroll.x = -player.getDir().x * scrollSpeed;
+	scroll.y = -player.getDir().y * scrollSpeed;
+
 	for (int i = 0; i < tiles.size(); i++)
 		tiles[i]->update(delta, scroll);
 	//for (int i = 0; i < enemies.size(); i++) enemies[i]->update(delta, scroll);

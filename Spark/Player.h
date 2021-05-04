@@ -4,6 +4,7 @@
 #include "PlayerState.h"
 #include "PlayerJumping.h"
 #include "PlayerOnGround.h"
+#include "PlayerFalling.h"
 
 class Player {
 public:

@@ -3,7 +3,7 @@ using namespace sf;
 
 Player::Player()
 {
-	playerState = std::make_unique<PlayerJumping>();
+	playerState = std::make_unique<PlayerFalling>();
 }
 
 void Player::handleInput(sf::Event& e)

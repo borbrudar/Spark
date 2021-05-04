@@ -6,6 +6,8 @@ PlayerState::vel = sf::Vector2f(0, 0);
 
 collisionType PlayerState::lastColType = collisionType::none;
 
+int PlayerState::xdir = 0, PlayerState::ydir = 0;
+
 PlayerState::PlayerState()
 {
 	box.create(pos, size);
@@ -18,13 +20,12 @@ void PlayerState::handleInput(sf::Event& e)
 	if (e.type == Event::KeyPressed) {
 		if (e.key.code == Keyboard::Left) xdir = -1;
 		if (e.key.code == Keyboard::Right) xdir = 1;
-		if (e.key.code == Keyboard::Up) {
-			ydir = 1;
-		}
+		if (e.key.code == Keyboard::Up) ydir = 1;
 	}
 	if (e.type == Event::KeyReleased) {
 		if (e.key.code == Keyboard::Left) xdir = 0;
 		if (e.key.code == Keyboard::Right) xdir = 0;
+		if (e.key.code == Keyboard::Up) ydir = 0;
 	}
 }
 
@@ -48,12 +49,19 @@ sf::Vector2i PlayerState::getDir()
 	return sf::Vector2i(xdir,0);
 }
 
-void PlayerState::applyGravity(float delta)
-{
-	pos.y += gravity * delta;
-}
-
 void PlayerState::updateBoxPosition()
 {
 	box.setPosition(pos);
+}
+
+void PlayerState::horizontalCollision()
+{
+	if ((xdir == 1 && lastColType == collisionType::right) ||
+		(xdir == -1 && lastColType == collisionType::left)) 
+		xdir = 0;
+}
+
+void PlayerState::defaultResolveCollision()
+{
+	if (lastColType != collisionType::none) box.defaultResolveCollision();
 }

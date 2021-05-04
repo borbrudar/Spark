@@ -14,8 +14,9 @@ void PlayerJumping::handleInput(sf::Event& e)
 std::unique_ptr<PlayerState> PlayerJumping::update(float delta)
 {
     PlayerState::updateBoxPosition();
-    ydir = 0;
-    
+    PlayerState::horizontalCollision();
+    PlayerState::defaultResolveCollision();
+
     pos.y += vel.y * delta;
     vel.y += acc * delta;
 

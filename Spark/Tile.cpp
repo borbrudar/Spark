@@ -1,10 +1,12 @@
 #include "Tile.h"
 using namespace sf;
-Tile::Tile()
+
+Tile::Tile(sf::Vector2f pos)
 {
-	pos = Vector2f(200, 350);
-	temp.setSprite(pos, { 150,50 }, Color::Green);
-	box.create(pos, { 150,50 });
+	this->pos = pos;
+	this->size = { 150,50 };
+	temp.setSprite(pos, size, Color::Green);
+	box.create(pos, size );
 }
 
 void Tile::update(float delta, Vector2f scroll)

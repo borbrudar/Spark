@@ -4,14 +4,15 @@ using namespace sf;
 void CollisionBox::create(sf::Vector2f pos, sf::Vector2f size)
 {
 	this->pos = pos; this->size = size;
-	box.push_back(RectangleShape({ 3, size.y }));
+	padding.x = size.x / 10; padding.y = size.y / 10;
+	box.push_back(RectangleShape({ padding.x, size.y })); //left
 	box.back().setPosition(pos);
-	box.push_back(RectangleShape({ 3,size.y }));
+	box.push_back(RectangleShape({ padding.x ,size.y })); //right
 	box.back().setPosition(pos.x + size.y,pos.y);
 
-	box.push_back(RectangleShape({ size.x,4 }));
+	box.push_back(RectangleShape({ size.x,padding.y })); //top
 	box.back().setPosition(pos);
-	box.push_back(RectangleShape({ size.x,5 }));
+	box.push_back(RectangleShape({ size.x,padding.y })); //bottom
 	box.back().setPosition(pos.x,pos.y + size.y);
 
 	for (int i = 0; i < box.size(); i++) box[i].setFillColor(Color::Red);
@@ -41,7 +42,6 @@ void CollisionBox::move(sf::Vector2f by)
 	updateBoxes();
 }
 
-
 collisionType CollisionBox::checkCollision(CollisionBox& other)
 {
 	if (other.box[0].getGlobalBounds().intersects(box[1].getGlobalBounds())) {
@@ -66,8 +66,8 @@ sf::Vector2f CollisionBox::getPos()
 
 void CollisionBox::updateBoxes()
 {
-	box[0].setPosition(pos);
-	box[1].setPosition(pos.x + size.x, pos.y);
-	box[2].setPosition(pos);
-	box[3].setPosition(pos.x, pos.y + size.y);
+	box[0].setPosition(pos); // left
+	box[1].setPosition(pos.x + size.x - padding.x, pos.y - padding.y); //right
+	box[2].setPosition(pos); //top
+	box[3].setPosition(pos.x, pos.y + size.y - padding.y); //bottom
 }

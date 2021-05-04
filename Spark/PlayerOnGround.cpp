@@ -12,11 +12,14 @@ void PlayerOnGround::handleInput(sf::Event& e)
 std::unique_ptr<PlayerState> PlayerOnGround::update(float delta)
 {
 	PlayerState::updateBoxPosition();
+	PlayerState::horizontalCollision();
+	PlayerState::defaultResolveCollision();
+
 	if (ydir == 1) {
 		clearState();
 		return std::make_unique<PlayerJumping>();
 	}
-	if (lastColType != collisionType::top) {
+	if (lastColType == collisionType::none) {
 		clearState();
 		return std::make_unique<PlayerFalling>();
 	}
@@ -26,6 +29,5 @@ std::unique_ptr<PlayerState> PlayerOnGround::update(float delta)
 
 void PlayerOnGround::clearState()
 {
-	ydir = 0;
 	lastColType = collisionType::none;
 }

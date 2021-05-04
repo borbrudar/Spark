@@ -25,4 +25,5 @@ private:
 	void updateBoxes();
 	std::vector<sf::RectangleShape> box;
 	sf::Vector2f pos, size, prevPos;
+	sf::Vector2f padding;
 };

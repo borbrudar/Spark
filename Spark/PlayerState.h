@@ -16,13 +16,14 @@ public:
 	void checkCollision(Interactive& e);
 	sf::Vector2i getDir();
 protected:
-	void applyGravity(float delta);
 	void updateBoxPosition();
+	void horizontalCollision();
+	void defaultResolveCollision();
 
 	CollisionBox box;
 	ISprite playerSprite;
 	ID ID = ID::player;
-	int xdir = 0, ydir = 0;
+	static int xdir, ydir;
 	static sf::Vector2f pos, size, vel;
 
 	std::unique_ptr<Interactive> lastCol;
@@ -30,4 +31,5 @@ protected:
 
 	const float constGrav = 90.f;
 	float gravity = 90.f;
+
 };
