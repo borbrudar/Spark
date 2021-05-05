@@ -16,18 +16,14 @@ std::unique_ptr<PlayerState> PlayerOnGround::update(float delta)
 	PlayerState::defaultResolveCollision();
 
 	if (ydir == 1) {
-		clearState();
+		lastColInfo.reset();
 		return std::make_unique<PlayerJumping>();
 	}
-	if (lastColType == collisionType::none) {
-		clearState();
+	if (lastColInfo.isNoCollision()) {
+		lastColInfo.reset();
 		return std::make_unique<PlayerFalling>();
 	}
-	lastColType = collisionType::none;
+	lastColInfo.reset();
 	return nullptr;
 }
 
-void PlayerOnGround::clearState()
-{
-	lastColType = collisionType::none;
-}

@@ -15,3 +15,8 @@ void Tile::update(float delta, Vector2f scroll)
 	box.setPosition(pos);
 }
 
+void Tile::draw(sf::RenderWindow& window)
+{
+	box.draw(window);
+}
+

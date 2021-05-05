@@ -27,7 +27,7 @@ protected:
 	static sf::Vector2f pos, size, vel;
 
 	std::unique_ptr<Interactive> lastCol;
-	static collisionType lastColType;
+	static collisionInfo lastColInfo;
 
 	const float constGrav = 90.f;
 	float gravity = 90.f;

@@ -3,12 +3,18 @@
 #include <vector>
 #include "ID.h"
 
-enum class collisionType {
-	none,
-	left,
-	right,
-	top,
-	bottom
+
+struct collisionInfo {
+	bool inline isNoCollision() { return !(left || right || top || bottom); };
+	void inline reset() { left = 0; right = 0; top = 0; bottom = 0; };
+	collisionInfo operator+=(collisionInfo& rhs) {
+		left = left || rhs.left;
+		right = right || rhs.right;
+		top = top || rhs.top;
+		bottom = bottom || rhs.bottom;
+		return *this;
+	}
+	bool left = 0, right = 0, top = 0, bottom = 0;
 };
 
 class CollisionBox {
@@ -19,7 +25,7 @@ public:
 	void defaultResolveCollision();
 	void move(sf::Vector2f by);
 	void move(float x, float y) { move(sf::Vector2f(x, y)); };
-	collisionType checkCollision(CollisionBox& other);
+	collisionInfo checkCollision(CollisionBox& other);
 	sf::Vector2f getPos();
 private:
 	void updateBoxes();

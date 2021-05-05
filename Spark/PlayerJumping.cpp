@@ -20,8 +20,10 @@ std::unique_ptr<PlayerState> PlayerJumping::update(float delta)
     pos.y += vel.y * delta;
     vel.y += acc * delta;
 
-    if (lastColType == collisionType::top) return std::make_unique<PlayerOnGround>();
     
-    lastColType = collisionType::none;
+    if (lastColInfo.bottom) 
+        return std::make_unique<PlayerOnGround>();
+    
+    lastColInfo.reset();
     return nullptr;
 }

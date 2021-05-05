@@ -4,7 +4,7 @@ using namespace sf;
 sf::Vector2f PlayerState::pos = sf::Vector2f(100, 100), PlayerState::size = sf::Vector2f(50, 50),
 PlayerState::vel = sf::Vector2f(0, 0);
 
-collisionType PlayerState::lastColType = collisionType::none;
+collisionInfo PlayerState::lastColInfo = collisionInfo();
 
 int PlayerState::xdir = 0, PlayerState::ydir = 0;
 
@@ -32,14 +32,16 @@ void PlayerState::handleInput(sf::Event& e)
 void PlayerState::draw(sf::RenderWindow& window)
 {
 	playerSprite.updatePos(pos);
-	playerSprite.draw(window);
+	//playerSprite.draw(window);
+	box.draw(window);
 }
+
 
 void PlayerState::checkCollision(Interactive& e)
 {
-	collisionType temp = box.checkCollision(e.getCollisionBox());
-	if (temp != collisionType::none) {
-		lastColType = temp;
+	collisionInfo temp = box.checkCollision(e.getCollisionBox());
+	if (!temp.isNoCollision()) {
+		lastColInfo += temp;
 		lastCol = std::make_unique<Interactive>(e);
 	}
 }
@@ -56,12 +58,13 @@ void PlayerState::updateBoxPosition()
 
 void PlayerState::horizontalCollision()
 {
-	if ((xdir == 1 && lastColType == collisionType::right) ||
-		(xdir == -1 && lastColType == collisionType::left)) 
+	if ((xdir == 1 && lastColInfo.right) ||
+		(xdir == -1 && lastColInfo.left))
 		xdir = 0;
+	
 }
 
 void PlayerState::defaultResolveCollision()
 {
-	if (lastColType != collisionType::none) box.defaultResolveCollision();
+	if (!lastColInfo.isNoCollision()) box.defaultResolveCollision();
 }
