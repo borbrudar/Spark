@@ -68,3 +68,10 @@ void PlayerState::defaultResolveCollision()
 {
 	if (!lastColInfo.isNoCollision()) box.defaultResolveCollision();
 }
+
+void PlayerState::basicBehaviour()
+{
+	updateBoxPosition();
+	horizontalCollision();
+	defaultResolveCollision();
+}

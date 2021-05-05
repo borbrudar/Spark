@@ -19,6 +19,7 @@ protected:
 	void updateBoxPosition();
 	void horizontalCollision();
 	void defaultResolveCollision();
+	void basicBehaviour();
 
 	CollisionBox box;
 	ISprite playerSprite;

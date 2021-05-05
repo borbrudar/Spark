@@ -3,8 +3,9 @@ using namespace sf;
 
 PlayState::PlayState()
 {
-	tiles.push_back(std::make_unique<Tile>(sf::Vector2f(50,400 )));
-	tiles.push_back(std::make_unique<Tile>(sf::Vector2f(200, 350)));
+	tiles.push_back(std::make_unique<Tile>(Vector2f(50,400 )));
+	tiles.push_back(std::make_unique<Tile>(Vector2f(200, 350)));
+	tiles.push_back(std::make_unique<Tile>(Vector2f(270, 170)));
 	//enemies.push_back(std::make_unique<Enemy>());
 }
 

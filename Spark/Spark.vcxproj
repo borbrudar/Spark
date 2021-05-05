@@ -149,6 +149,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Interactive.cpp" />
     <ClCompile Include="ISprite.cpp" />
+    <ClCompile Include="PlayerFalling.cpp" />
     <ClCompile Include="PlayerJumping.cpp" />
     <ClCompile Include="PlayerOnGround.cpp" />
     <ClCompile Include="PlayerState.cpp" />
