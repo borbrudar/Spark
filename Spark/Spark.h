@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+
 class Spark {
 public:
 	Spark();
@@ -11,9 +12,9 @@ private:
 	void handleInput();
 	void draw();
 	void update();
-
-	sf::RenderWindow window;
+	
 	sf::Event e;
+	sf::RenderWindow window;
 
 	std::vector<std::unique_ptr<State>> state;
 	//timestep

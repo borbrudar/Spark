@@ -12,4 +12,5 @@ public:
 	virtual void update(float delta);
 
 	std::unique_ptr<GameState> gameState;
+	bool switching = 0;
 };

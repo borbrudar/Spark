@@ -16,6 +16,7 @@ public:
 	virtual void handleInput(sf::Event& e) = 0;
 	virtual void update(float delta) = 0;
 	virtual void draw(sf::RenderWindow& window);
+	virtual void setMouse(sf::RenderWindow &window) {};
 	SharedGameState& getState();
 protected:
 	SharedGameState ss;

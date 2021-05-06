@@ -8,4 +8,5 @@ public:
 	virtual void handleInput(sf::Event& e);
 	virtual void draw(sf::RenderWindow& window);
 	virtual void update(float delta);
+	virtual void setMouse(sf::RenderWindow& window);
 };

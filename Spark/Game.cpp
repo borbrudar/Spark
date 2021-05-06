@@ -19,6 +19,7 @@ void Game::handleInput(sf::Event& e)
 				gameState = std::make_unique<PlayState>(gameState.get()->getState());
 				std::cout << "play\n";
 			}
+			switching = 1;
 		}
 	}
 
@@ -27,6 +28,10 @@ void Game::handleInput(sf::Event& e)
 
 void Game::draw(sf::RenderWindow& window)
 {
+	if (switching) {
+		gameState->setMouse(window);
+		switching = 0;
+	}
 	gameState->draw(window);
 }
 

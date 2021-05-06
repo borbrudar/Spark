@@ -31,6 +31,11 @@ void PlayState::update(float delta)
 	checkCollision(delta);
 }
 
+void PlayState::setMouse(sf::RenderWindow& window)
+{
+	window.setMouseCursorVisible(0);
+}
+
 void PlayState::checkCollision(float delta)
 {
 	for (int i = 0; i < ss.tiles.size(); i++) {
