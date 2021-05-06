@@ -1,6 +1,5 @@
 #pragma once
 #include "State.h"
-#include "PlayState.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
 

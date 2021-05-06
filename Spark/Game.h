@@ -1,5 +1,5 @@
 #pragma once
-#include "State.h"
+#include "GameState.h"
 #include "PlayState.h"
 #include "Editor.h"
 
@@ -11,5 +11,5 @@ public:
 	virtual void draw(sf::RenderWindow& window);
 	virtual void update(float delta);
 
-	std::unique_ptr<State> gameState;
+	std::unique_ptr<GameState> gameState;
 };

@@ -1,25 +1,14 @@
 #pragma once
 #include <vector>
-#include "State.h"
-#include "Entity.h"
-#include "Player.h"
-#include "Tile.h"
-#include "Enemy.h"
+#include "GameState.h"
 
 
-class PlayState : public State{
+class PlayState : public GameState{
 public:
 	PlayState();
-
+	PlayState(SharedGameState& s);
 	void handleInput(sf::Event& e);
-	void draw(sf::RenderWindow& window);
 	void update(float delta);
 private:
 	void checkCollision(float delta);
-
-	Player player;
-	std::vector<std::unique_ptr<Tile>> tiles;
-	std::vector<std::unique_ptr<Enemy>> enemies;
-	double scrollSpeed = 250.f;
-	sf::Vector2f scroll;
 };

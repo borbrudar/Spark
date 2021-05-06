@@ -3,32 +3,29 @@ using namespace sf;
 
 PlayState::PlayState()
 {
-	tiles.push_back(std::make_unique<Tile>(Vector2f(50,400 )));
-	tiles.push_back(std::make_unique<Tile>(Vector2f(200, 350)));
-	tiles.push_back(std::make_unique<Tile>(Vector2f(270, 170)));
-	//enemies.push_back(std::make_unique<Enemy>());
+	ss.tiles.push_back(std::make_unique<Tile>(Vector2f(50, 400)));
+	ss.tiles.push_back(std::make_unique<Tile>(Vector2f(200, 350)));
+	ss.tiles.push_back(std::make_unique<Tile>(Vector2f(270, 170)));
+}
+
+PlayState::PlayState(SharedGameState& s)
+{
+	ss = std::move(s);
 }
 
 void PlayState::handleInput(sf::Event& e)
 {
-	player.handleInput(e);
-}
-
-void PlayState::draw(sf::RenderWindow& window)
-{
-	player.draw(window);
-	for (int i = 0; i < tiles.size(); i++) tiles[i]->draw(window);
-	//for (int i = 0; i < enemies.size(); i++) enemies[i]->draw(window);
+	ss.player.handleInput(e);
 }
 
 void PlayState::update(float delta)
 {
-	player.update(delta);
-	scroll.x = -player.getDir().x * scrollSpeed;
-	scroll.y = -player.getDir().y * scrollSpeed;
+	ss.player.update(delta);
+	scroll.x = -ss.player.getDir().x * scrollSpeed;
+	scroll.y = -ss.player.getDir().y * scrollSpeed;
 
-	for (int i = 0; i < tiles.size(); i++)
-		tiles[i]->update(delta, scroll);
+	for (int i = 0; i < ss.tiles.size(); i++)
+		ss.tiles[i]->update(delta, scroll);
 	//for (int i = 0; i < enemies.size(); i++) enemies[i]->update(delta, scroll);
 
 	checkCollision(delta);
@@ -36,8 +33,8 @@ void PlayState::update(float delta)
 
 void PlayState::checkCollision(float delta)
 {
-	for (int i = 0; i < tiles.size(); i++) {
-		player.checkCollision(*tiles[i]);
+	for (int i = 0; i < ss.tiles.size(); i++) {
+		ss.player.checkCollision(*ss.tiles[i]);
 		//for (int j = 0; j < enemies.size(); j++) enemies[j]->defaultResolveCollision(*tiles[i]);
 	}
 }
