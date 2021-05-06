@@ -1,5 +1,4 @@
 #pragma once
-#include "State.h"
 #include "Entity.h"
 #include "Player.h"
 #include "Tile.h"
@@ -11,12 +10,11 @@ struct SharedGameState {
 	std::vector<std::unique_ptr<Enemy>> enemies;
 };
 
-class GameState : public State {
+class GameState {
 public:
-	virtual void handleInput(sf::Event& e) = 0;
+	virtual void handleInput(sf::Event& e, sf::Mouse& m) = 0;
 	virtual void update(float delta) = 0;
 	virtual void draw(sf::RenderWindow& window);
-	virtual void setMouse(sf::RenderWindow &window) {};
 	SharedGameState& getState();
 protected:
 	SharedGameState ss;

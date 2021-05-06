@@ -15,6 +15,7 @@ private:
 	
 	sf::Event e;
 	sf::RenderWindow window;
+	sf::Mouse m;
 
 	std::vector<std::unique_ptr<State>> state;
 	//timestep

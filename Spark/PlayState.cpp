@@ -13,7 +13,7 @@ PlayState::PlayState(SharedGameState& s)
 	ss = std::move(s);
 }
 
-void PlayState::handleInput(sf::Event& e)
+void PlayState::handleInput(sf::Event& e, sf::Mouse& m)
 {
 	ss.player.handleInput(e);
 }
@@ -29,11 +29,6 @@ void PlayState::update(float delta)
 	//for (int i = 0; i < enemies.size(); i++) enemies[i]->update(delta, scroll);
 
 	checkCollision(delta);
-}
-
-void PlayState::setMouse(sf::RenderWindow& window)
-{
-	window.setMouseCursorVisible(0);
 }
 
 void PlayState::checkCollision(float delta)

@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-void Menu::handleInput(sf::Event& e)
+void Menu::handleInput(sf::Event& e, sf::Mouse& m)
 {
 }
 

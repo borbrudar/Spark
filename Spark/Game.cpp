@@ -7,7 +7,7 @@ Game::Game()
 	gameState = std::make_unique<PlayState>();
 }
 
-void Game::handleInput(sf::Event& e)
+void Game::handleInput(sf::Event& e, sf::Mouse& m)
 {
 	if (e.type == Event::KeyPressed) {
 		if (e.key.code == Keyboard::P) {
@@ -19,19 +19,14 @@ void Game::handleInput(sf::Event& e)
 				gameState = std::make_unique<PlayState>(gameState.get()->getState());
 				std::cout << "play\n";
 			}
-			switching = 1;
 		}
 	}
 
-	gameState->handleInput(e);
+	gameState->handleInput(e,m);
 }
 
 void Game::draw(sf::RenderWindow& window)
 {
-	if (switching) {
-		gameState->setMouse(window);
-		switching = 0;
-	}
 	gameState->draw(window);
 }
 

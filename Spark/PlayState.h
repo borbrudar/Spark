@@ -7,9 +7,8 @@ class PlayState : public GameState{
 public:
 	PlayState();
 	PlayState(SharedGameState& s);
-	virtual void handleInput(sf::Event& e) override;
+	virtual void handleInput(sf::Event& e, sf::Mouse& m) override;
 	virtual void update(float delta) override;
-	virtual void setMouse(sf::RenderWindow& window) override;
 private:
 	void checkCollision(float delta);
 };
