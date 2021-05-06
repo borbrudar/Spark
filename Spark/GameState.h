@@ -12,7 +12,7 @@ struct SharedGameState {
 
 class GameState {
 public:
-	virtual void handleInput(sf::Event& e, sf::Mouse& m) = 0;
+	virtual void handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window) = 0;
 	virtual void update(float delta) = 0;
 	virtual void draw(sf::RenderWindow& window);
 	SharedGameState& getState();

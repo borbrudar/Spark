@@ -13,7 +13,7 @@ PlayState::PlayState(SharedGameState& s)
 	ss = std::move(s);
 }
 
-void PlayState::handleInput(sf::Event& e, sf::Mouse& m)
+void PlayState::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	ss.player.handleInput(e);
 }

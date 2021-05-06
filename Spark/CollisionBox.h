@@ -26,6 +26,7 @@ public:
 	void move(sf::Vector2f by);
 	void move(float x, float y) { move(sf::Vector2f(x, y)); };
 	collisionInfo checkCollision(CollisionBox& other);
+	bool contains(sf::Vector2i pos);
 	sf::Vector2f getPos();
 private:
 	void updateBoxes();

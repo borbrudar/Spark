@@ -7,7 +7,7 @@ Game::Game()
 	gameState = std::make_unique<PlayState>();
 }
 
-void Game::handleInput(sf::Event& e, sf::Mouse& m)
+void Game::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	if (e.type == Event::KeyPressed) {
 		if (e.key.code == Keyboard::P) {
@@ -22,7 +22,7 @@ void Game::handleInput(sf::Event& e, sf::Mouse& m)
 		}
 	}
 
-	gameState->handleInput(e,m);
+	gameState->handleInput(e,m,window);
 }
 
 void Game::draw(sf::RenderWindow& window)

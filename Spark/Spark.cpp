@@ -20,7 +20,7 @@ void Spark::handleInput()
 {
 	while (window.pollEvent(e)) {
 		if (e.type == sf::Event::Closed) window.close();
-		state[0]->handleInput(e,m);
+		state[0]->handleInput(e,m,window);
 	}
 	
 }

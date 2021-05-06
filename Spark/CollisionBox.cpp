@@ -57,6 +57,11 @@ collisionInfo CollisionBox::checkCollision(CollisionBox& other)
 	return inf;
 }
 
+bool CollisionBox::contains(sf::Vector2i pos)
+{
+	return IntRect(static_cast<Vector2i>(this->pos), static_cast<Vector2i>(size)).contains(pos);
+}
+
 sf::Vector2f CollisionBox::getPos()
 {
 	return pos;
