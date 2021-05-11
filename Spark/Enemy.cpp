@@ -11,7 +11,5 @@ Enemy::Enemy()
 void Enemy::update(float delta, sf::Vector2f scroll)
 {
 	Entity::update(delta, scroll);
-	Interactive::update(delta, scroll);
-	MovableEntity::update(delta, scroll);
 	pos.x -= 30 * delta;
 }

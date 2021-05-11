@@ -24,7 +24,7 @@ void Player::draw(sf::RenderWindow& window)
 	playerState->draw(window);
 }
 
-void Player::checkCollision(Interactive& e)
+void Player::checkCollision(Entity& e)
 {
 	playerState->checkCollision(e);
 }

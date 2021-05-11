@@ -1,6 +1,11 @@
 #include "GameState.h"
 using namespace sf;
 
+GameState::GameState()
+{
+	ss.level.loadLevel("levels/level1.png", ss.tiles, 50);
+}
+
 void GameState::draw(sf::RenderWindow& window)
 {
 	ss.player.draw(window);

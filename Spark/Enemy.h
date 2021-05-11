@@ -1,7 +1,7 @@
 #pragma once
-#include "MovableEntity.h"
+#include "Entity.h"
 
-class Enemy : public MovableEntity {
+class Enemy : public Entity {
 public:
 	Enemy();
 	virtual void update(float delta, sf::Vector2f scroll) override;

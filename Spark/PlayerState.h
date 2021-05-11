@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "ISprite.h"
 #include "CollisionBox.h"
-#include "Interactive.h"
+#include "Entity.h"
 
 
 class PlayerState {
@@ -13,7 +13,7 @@ public:
 	virtual std::unique_ptr<PlayerState> update(float delta) = 0;
 	virtual void draw(sf::RenderWindow& window);
 
-	void checkCollision(Interactive& e);
+	void checkCollision(Entity& e);
 	sf::Vector2i getDir();
 protected:
 	void updateBoxPosition();
@@ -27,7 +27,7 @@ protected:
 	static int xdir, ydir;
 	static sf::Vector2f pos, size, vel;
 
-	std::unique_ptr<Interactive> lastCol;
+	std::unique_ptr<Entity> lastCol;
 	static collisionInfo lastColInfo;
 
 	const float constGrav = 90.f;

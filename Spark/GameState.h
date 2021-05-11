@@ -3,15 +3,19 @@
 #include "Player.h"
 #include "Tile.h"
 #include "Enemy.h"
+#include "LevelReader.h"
 
 struct SharedGameState {
 	Player player;
-	std::vector<std::unique_ptr<Tile>> tiles;
+	std::vector<std::unique_ptr<Entity>> tiles;
 	std::vector<std::unique_ptr<Enemy>> enemies;
+	LevelReader level;
 };
 
 class GameState {
 public:
+	GameState();
+	virtual ~GameState() {};
 	virtual void handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window) = 0;
 	virtual void update(float delta) = 0;
 	virtual void draw(sf::RenderWindow& window);

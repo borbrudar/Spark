@@ -26,9 +26,6 @@
     <Filter Include="MainState\Game\PlayState\Entity\Movable">
       <UniqueIdentifier>{5ce1b4ae-deb2-47a1-ac7f-49b9ba45c76b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MainState\Game\PlayState\Entity\Immovable">
-      <UniqueIdentifier>{2d78aa32-5174-4841-ba87-38ff4376ed4d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MainState\Game\PlayState\Entity\Movable\Player">
       <UniqueIdentifier>{66a90507-0c45-4e42-a8de-ef0f4c2454f9}</UniqueIdentifier>
     </Filter>
@@ -36,15 +33,6 @@
   <ItemGroup>
     <ClCompile Include="Entity.cpp">
       <Filter>MainState\Game\PlayState\Entity</Filter>
-    </ClCompile>
-    <ClCompile Include="MovableEntity.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
-    </ClCompile>
-    <ClCompile Include="ImmovableEntity.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Immovable</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Immovable</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>MainState</Filter>
@@ -70,9 +58,6 @@
     <ClCompile Include="CollisionBox.cpp">
       <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClCompile>
-    <ClCompile Include="Interactive.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
-    </ClCompile>
     <ClCompile Include="ISprite.cpp">
       <Filter>MainState\Game</Filter>
     </ClCompile>
@@ -94,19 +79,16 @@
     <ClCompile Include="PlayerFalling.cpp">
       <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
     </ClCompile>
+    <ClCompile Include="LevelReader.cpp">
+      <Filter>MainState</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
       <Filter>MainState\Game\PlayState\Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="MovableEntity.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
-    </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>MainState\Game\PlayState\Entity\Immovable</Filter>
-    </ClInclude>
-    <ClInclude Include="ImmovableEntity.h">
-      <Filter>MainState\Game\PlayState\Entity\Immovable</Filter>
     </ClInclude>
     <ClInclude Include="Spark.h">
       <Filter>MainState</Filter>
@@ -132,9 +114,6 @@
     <ClInclude Include="CollisionBox.h">
       <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
     </ClInclude>
-    <ClInclude Include="Interactive.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
-    </ClInclude>
     <ClInclude Include="ISprite.h">
       <Filter>MainState\Game</Filter>
     </ClInclude>
@@ -158,6 +137,12 @@
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>MainState\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelReader.h">
+      <Filter>MainState</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

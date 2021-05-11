@@ -37,12 +37,12 @@ void PlayerState::draw(sf::RenderWindow& window)
 }
 
 
-void PlayerState::checkCollision(Interactive& e)
+void PlayerState::checkCollision(Entity& e)
 {
 	collisionInfo temp = box.checkCollision(e.getCollisionBox());
 	if (!temp.isNoCollision()) {
 		lastColInfo += temp;
-		lastCol = std::make_unique<Interactive>(e);
+		lastCol = std::make_unique<Entity>(e);
 	}
 }
 

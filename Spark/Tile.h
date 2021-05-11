@@ -1,7 +1,7 @@
 #pragma once
-#include "ImmovableEntity.h"
+#include "Entity.h"
 
-class Tile : public ImmovableEntity {
+class Tile : public Entity {
 public:
 	Tile(sf::Vector2f pos, sf::Vector2f size = { 150,50 });
 	void update(float delta, sf::Vector2f scroll) override;
