@@ -14,10 +14,23 @@ void AdvancedBox::create(sf::Vector2f pos, sf::Vector2f size)
 	for (int i = 0; i < box.size(); i++) box[i].setFillColor(Color(150 + i * 25,0,0,100 + i * 25));
 }
 
-collisionInfo AdvancedBox::checkCollision(AdvancedBox& other)
+collisionInfo AdvancedBox::checkCollision(CollisionBox& other)
 {
 	collisionInfo inf;
-	if (other.box[0].getGlobalBounds().intersects(box[1].getGlobalBounds())) {
+	if (box[0].getGlobalBounds().intersects(other.getBox()[0].getGlobalBounds())) inf.left = 1;
+	if (box[1].getGlobalBounds().intersects(other.getBox()[0].getGlobalBounds())) inf.right = 1;
+	if (box[2].getGlobalBounds().intersects(other.getBox()[0].getGlobalBounds())) inf.top = 1;
+	if (box[3].getGlobalBounds().intersects(other.getBox()[0].getGlobalBounds())) inf.bottom = 1;
+	return inf;
+}
+
+#include <iostream>
+collisionInfo AdvancedBox::checkCollision(AdvancedBox& other)
+{
+	// fixed advanced collisions
+	collisionInfo inf;
+	std::cout << "cant do advanced collisions yet\n";
+	/*if (other.box[0].getGlobalBounds().intersects(box[1].getGlobalBounds())) {
 		inf.right = 1;
 	}
 	if (other.box[1].getGlobalBounds().intersects(box[0].getGlobalBounds())) {
@@ -28,7 +41,7 @@ collisionInfo AdvancedBox::checkCollision(AdvancedBox& other)
 	}
 	if (other.box[3].getGlobalBounds().intersects(box[2].getGlobalBounds())) {
 		inf.top = 1;
-	}
+	}*/
 
 	return inf;
 }

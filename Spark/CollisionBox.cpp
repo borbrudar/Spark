@@ -42,6 +42,11 @@ sf::Vector2f CollisionBox::getPos()
 	return pos;
 }
 
+std::vector<sf::RectangleShape>& CollisionBox::getBox()
+{
+	return box;
+}
+
 void CollisionBox::updateBoxes()
 {
 	box[0].setPosition(pos);

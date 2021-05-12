@@ -14,11 +14,12 @@ struct collisionInfo {
 	bool left = 0, right = 0, top = 0, bottom = 0;
 };
 
+class AdvancedBox;
 class CollisionBox {
 public:
 	virtual void create(sf::Vector2f pos, sf::Vector2f size);
-	virtual collisionInfo checkCollision(CollisionBox& other) = 0;
-
+	virtual collisionInfo checkCollision(CollisionBox& other) {};
+	virtual collisionInfo checkCollision(AdvancedBox& other) {};
 
 	void setPosition(sf::Vector2f newPos);
 	void draw(sf::RenderWindow& window);
@@ -27,7 +28,8 @@ public:
 	void move(float x, float y) { move(sf::Vector2f(x, y)); };
 	bool contains(sf::Vector2i pos);
 	sf::Vector2f getPos();
-private:
+	std::vector<sf::RectangleShape>& getBox();
+protected:
 	virtual void updateBoxes();
 	std::vector<sf::RectangleShape> box;
 	sf::Vector2f pos, size, prevPos;
