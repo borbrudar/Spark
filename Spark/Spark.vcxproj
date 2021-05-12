@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdvancedBox.cpp" />
     <ClCompile Include="CollisionBox.cpp" />
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="Spark.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdvancedBox.h" />
     <ClInclude Include="CollisionBox.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="Enemy.h" />

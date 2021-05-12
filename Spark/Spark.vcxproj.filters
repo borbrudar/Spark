@@ -23,11 +23,11 @@
     <Filter Include="MainState\Game\PlayState\Entity">
       <UniqueIdentifier>{8f966f40-56bd-4c01-85bb-fe5311659d4a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MainState\Game\PlayState\Entity\Movable">
-      <UniqueIdentifier>{5ce1b4ae-deb2-47a1-ac7f-49b9ba45c76b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MainState\Game\PlayState\Entity\Movable\Player">
+    <Filter Include="MainState\Game\PlayState\Entity\Player">
       <UniqueIdentifier>{66a90507-0c45-4e42-a8de-ef0f4c2454f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity\Collisionbox">
+      <UniqueIdentifier>{5ce1b4ae-deb2-47a1-ac7f-49b9ba45c76b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,38 +52,41 @@
     <ClCompile Include="Game.cpp">
       <Filter>MainState\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionBox.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
-    </ClCompile>
     <ClCompile Include="ISprite.cpp">
       <Filter>MainState\Game</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerJumping.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerOnGround.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerState.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>MainState\Game</Filter>
     </ClCompile>
     <ClCompile Include="PlayerFalling.cpp">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClCompile>
     <ClCompile Include="LevelReader.cpp">
       <Filter>MainState</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="AdvancedBox.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionBox.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +102,6 @@
     <ClInclude Include="Menu.h">
       <Filter>MainState\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
-    </ClInclude>
     <ClInclude Include="PlayState.h">
       <Filter>MainState\Game\PlayState</Filter>
     </ClInclude>
@@ -111,29 +111,26 @@
     <ClInclude Include="Editor.h">
       <Filter>MainState\Game\Editor</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionBox.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable</Filter>
-    </ClInclude>
     <ClInclude Include="ISprite.h">
       <Filter>MainState\Game</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerJumping.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerOnGround.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerState.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClInclude>
     <ClInclude Include="ID.h">
       <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClInclude>
     <ClInclude Include="PlayerFalling.h">
-      <Filter>MainState\Game\PlayState\Entity\Movable\Player</Filter>
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>MainState\Game</Filter>
@@ -143,6 +140,15 @@
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="AdvancedBox.h">
+      <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionBox.h">
+      <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

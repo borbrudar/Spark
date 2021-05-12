@@ -1,8 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <vector>
-#include "ID.h"
-
 
 struct collisionInfo {
 	bool inline isNoCollision() { return !(left || right || top || bottom); };
@@ -19,17 +16,19 @@ struct collisionInfo {
 
 class CollisionBox {
 public:
-	void create(sf::Vector2f pos, sf::Vector2f size);
+	virtual void create(sf::Vector2f pos, sf::Vector2f size);
+	virtual collisionInfo checkCollision(CollisionBox& other) = 0;
+
+
 	void setPosition(sf::Vector2f newPos);
 	void draw(sf::RenderWindow& window);
 	void defaultResolveCollision();
 	void move(sf::Vector2f by);
 	void move(float x, float y) { move(sf::Vector2f(x, y)); };
-	collisionInfo checkCollision(CollisionBox& other);
 	bool contains(sf::Vector2i pos);
 	sf::Vector2f getPos();
 private:
-	void updateBoxes();
+	virtual void updateBoxes();
 	std::vector<sf::RectangleShape> box;
 	sf::Vector2f pos, size, prevPos;
 	sf::Vector2f padding;
