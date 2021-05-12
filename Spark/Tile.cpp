@@ -25,7 +25,7 @@ void Tile::drawPreview(Vector2f leftCorner, Vector2f rightCorner, RenderWindow &
 	ISprite temp;
 	Vector2f size = Vector2f(rightCorner.x - leftCorner.x,
 		 rightCorner.y - leftCorner.y);
-	temp.setSprite(leftCorner, size, Color::Red);
+	temp.setSprite(leftCorner, size, Color(34, 139, 34));
 	temp.draw(window);
 }
 

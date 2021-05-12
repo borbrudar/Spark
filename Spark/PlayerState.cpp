@@ -1,7 +1,7 @@
 #include "PlayerState.h"
 using namespace sf;
 
-sf::Vector2f PlayerState::pos = sf::Vector2f(100, 100), PlayerState::size = sf::Vector2f(50, 50),
+sf::Vector2f PlayerState::pos = sf::Vector2f(100, 120), PlayerState::size = sf::Vector2f(50, 50),
 PlayerState::vel = sf::Vector2f(0, 0);
 
 collisionInfo PlayerState::lastColInfo = collisionInfo();
@@ -60,8 +60,7 @@ void PlayerState::horizontalCollision()
 {
 	if ((xdir == 1 && lastColInfo.right) ||
 		(xdir == -1 && lastColInfo.left))
-		xdir = 0;
-	
+		xdir = 0;	
 }
 
 void PlayerState::defaultResolveCollision()

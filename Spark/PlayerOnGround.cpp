@@ -11,9 +11,7 @@ void PlayerOnGround::handleInput(sf::Event& e)
 
 std::unique_ptr<PlayerState> PlayerOnGround::update(float delta)
 {
-	PlayerState::updateBoxPosition();
-	PlayerState::horizontalCollision();
-	PlayerState::defaultResolveCollision();
+	PlayerState::basicBehaviour();
 
 	if (ydir == 1) {
 		lastColInfo.reset();

@@ -3,9 +3,10 @@ using namespace sf;
 
 void CollisionBox::create(sf::Vector2f pos, sf::Vector2f size)
 {
+	this->pos = pos; this->size = size;
 	box.push_back(RectangleShape(size));
 	box.back().setPosition(pos);
-	box.back().setFillColor(Color::Red);
+	box.back().setFillColor(Color(34, 139, 34,160)); //forestgreen
 }
 
 void CollisionBox::setPosition(sf::Vector2f newPos)

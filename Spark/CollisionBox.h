@@ -18,8 +18,8 @@ class AdvancedBox;
 class CollisionBox {
 public:
 	virtual void create(sf::Vector2f pos, sf::Vector2f size);
-	virtual collisionInfo checkCollision(CollisionBox& other) {};
-	virtual collisionInfo checkCollision(AdvancedBox& other) {};
+	virtual collisionInfo checkCollision(CollisionBox& other) { return collisionInfo(); };
+	virtual collisionInfo checkCollision(AdvancedBox& other) { return collisionInfo(); };
 
 	void setPosition(sf::Vector2f newPos);
 	void draw(sf::RenderWindow& window);

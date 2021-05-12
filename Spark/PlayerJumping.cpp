@@ -17,8 +17,10 @@ std::unique_ptr<PlayerState> PlayerJumping::update(float delta)
     PlayerState::basicBehaviour();
     positionUpdate(delta);
     
-    if (lastColInfo.bottom) 
+    if (lastColInfo.bottom) {
+        defaultResolveCollision();
         return std::make_unique<PlayerOnGround>();
+    }
     if (lastColInfo.top)
         return std::make_unique<PlayerFalling>();
     

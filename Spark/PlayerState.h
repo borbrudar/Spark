@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "ISprite.h"
-#include "CollisionBox.h"
+#include "AdvancedBox.h"
 #include "Entity.h"
 
 
@@ -21,7 +21,7 @@ protected:
 	void defaultResolveCollision();
 	void basicBehaviour();
 
-	CollisionBox box;
+	AdvancedBox box;
 	ISprite playerSprite;
 	ID ID = ID::player;
 	static int xdir, ydir;

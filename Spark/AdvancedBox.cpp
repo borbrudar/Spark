@@ -8,8 +8,8 @@ void AdvancedBox::create(sf::Vector2f pos, sf::Vector2f size)
 	box.push_back(RectangleShape({ padding.x, size.y - padding.y * 2})); //left
 	box.push_back(RectangleShape({ padding.x ,size.y - padding.y * 2})); //right
 
-	box.push_back(RectangleShape({ size.x,padding.y })); //top
-	box.push_back(RectangleShape({ size.x,padding.y })); //bottom
+	box.push_back(RectangleShape({ size.x - padding.x * 2,padding.y })); //top
+	box.push_back(RectangleShape({ size.x - padding.x * 2,padding.y })); //bottom
 
 	for (int i = 0; i < box.size(); i++) box[i].setFillColor(Color(150 + i * 25,0,0,100 + i * 25));
 }
@@ -50,7 +50,7 @@ void AdvancedBox::updateBoxes()
 {
 	box[0].setPosition(pos.x, pos.y + padding.y); // left
 	box[1].setPosition(pos.x + size.x - padding.x, pos.y + padding.y); //right
-	box[2].setPosition(pos); //top
-	box[3].setPosition(pos.x, pos.y + size.y - padding.y); //bottom
+	box[2].setPosition(pos.x + padding.x,pos.y); //top
+	box[3].setPosition(pos.x + padding.x, pos.y + size.y - padding.y); //bottom
 }
 
