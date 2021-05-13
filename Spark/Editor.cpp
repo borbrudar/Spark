@@ -45,6 +45,8 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 			Vector2f size = Vector2f(endPos.x - startPos.x,
 				endPos.y - startPos.y);
 			ss.tiles.push_back(std::make_unique<Tile>((Vector2f)startPos, size));
+			ss.level.addBlock(Color(0, size.x, size.y),
+				(Vector2f)startPos, ss.totalScroll, size);
 			drawPreview = 0;
 		}
 	}

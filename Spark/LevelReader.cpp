@@ -16,9 +16,16 @@ void LevelReader::loadLevel(std::string path, std::vector<std::unique_ptr<Entity
 	}
 }
 
+void LevelReader::addBlock(sf::Color c, sf::Vector2f pos, sf::Vector2f scroll, Vector2f size)
+{
+	if (c.r == 0) level.setPixel((pos.x + scroll.x)/tileSize , (pos.y + scroll.y)/tileSize, 
+		Color(c.r, size.x/tileSize, size.y/tileSize));
+	level.saveToFile("levels/level1.png");
+}
+
 std::unique_ptr<Entity> LevelReader::checkType(sf::Color c, int x, int y)
 {
-	if(c == Color(0,0,0)) return std::make_unique<Tile>(Vector2f(x,y), Vector2f(tileSize,tileSize));
+	if(c.r == 0) return std::make_unique<Tile>(Vector2f(x,y), Vector2f(tileSize * c.g,tileSize * c.b));
 	std::cout << "couldnt read tile type\n";
 	return nullptr;
 }

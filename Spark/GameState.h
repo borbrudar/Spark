@@ -5,11 +5,13 @@
 #include "Enemy.h"
 #include "LevelReader.h"
 
+const int tileSize = 50;
 struct SharedGameState {
 	Player player;
 	std::vector<std::unique_ptr<Entity>> tiles;
 	std::vector<std::unique_ptr<Enemy>> enemies;
-	LevelReader level;
+	LevelReader level = LevelReader(tileSize);
+	sf::Vector2f totalScroll;
 };
 
 class GameState {
@@ -21,8 +23,7 @@ public:
 	virtual void draw(sf::RenderWindow& window);
 	SharedGameState& getState();
 protected:
-	SharedGameState ss;
 	double scrollSpeed = 250.f;
-	int tileSize = 50;
+	SharedGameState ss;
 	sf::Vector2f scroll;
 };

@@ -20,6 +20,7 @@ void PlayState::update(float delta)
 	ss.player.update(delta);
 	scroll.x = -ss.player.getDir().x * scrollSpeed;
 	scroll.y = -ss.player.getDir().y * scrollSpeed;
+	ss.totalScroll -= Vector2f(scroll.x / scrollSpeed, scroll.y / scrollSpeed);
 
 	for (int i = 0; i < ss.tiles.size(); i++)
 		ss.tiles[i]->update(delta, scroll);
