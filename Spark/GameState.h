@@ -10,7 +10,7 @@ struct SharedGameState {
 	Player player;
 	std::vector<std::unique_ptr<Entity>> tiles;
 	std::vector<std::unique_ptr<Enemy>> enemies;
-	LevelReader level = LevelReader(tileSize);
+	LevelReader level;
 	sf::Vector2f totalScroll;
 };
 
@@ -26,4 +26,5 @@ protected:
 	double scrollSpeed = 250.f;
 	SharedGameState ss;
 	sf::Vector2f scroll;
+	int tileSize = LevelReader::tileSize;
 };
