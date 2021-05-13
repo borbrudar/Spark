@@ -39,14 +39,14 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		drawPreview = 1;
 		if (e.type == Event::MouseButtonPressed) {
 			Vector2i mPos = m.getPosition(window);
-			startPos = Vector2i((mPos.x / tileSize) * tileSize, (mPos.y / tileSize) * tileSize);
+			orgPos = mPos;
+			startPos = Vector2i((mPos.x / tileSize) * tileSize, 
+				(mPos.y / tileSize) * tileSize);
 		}
 		else if (e.type == Event::MouseButtonReleased) {
-			Vector2f size = Vector2f(endPos.x - startPos.x,
-				endPos.y - startPos.y);
+			Vector2f size = Vector2f(endPos.x - startPos.x,	endPos.y - startPos.y);
 			ss.tiles.push_back(std::make_unique<Tile>((Vector2f)startPos, size));
-			ss.level.addBlock(Color(0, size.x, size.y),
-				(Vector2f)startPos, ss.totalScroll, size);
+			ss.level.addBlock(Color(0, size.x, size.y),	(Vector2f)orgPos, (Vector2f)ss.totalScroll, size);
 			drawPreview = 0;
 		}
 	}
