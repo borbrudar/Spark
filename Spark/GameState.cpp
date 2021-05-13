@@ -3,7 +3,7 @@ using namespace sf;
 
 GameState::GameState()
 {
-	ss.level.loadLevel("levels/level1.png", ss.tiles, 50);
+	ss.level.loadLevel("levels/level1.png", ss.tiles, tileSize);
 }
 
 void GameState::draw(sf::RenderWindow& window)

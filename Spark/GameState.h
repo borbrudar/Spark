@@ -23,5 +23,6 @@ public:
 protected:
 	SharedGameState ss;
 	double scrollSpeed = 250.f;
+	int tileSize = 50;
 	sf::Vector2f scroll;
 };
