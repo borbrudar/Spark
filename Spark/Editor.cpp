@@ -24,7 +24,7 @@ void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 void Editor::draw(sf::RenderWindow& window)
 {
 	GameState::draw(window);
-	if (drawPreview) Tile::drawPreview((Vector2f)clampedPos, (Vector2f)endPos, window);
+	if (drawPreview) Tile::drawPreview((Vector2f)startPos, (Vector2f)endPos, window);
 }
 
 void Editor::update(float delta)
@@ -38,17 +38,18 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 	if (e.mouseButton.button == Mouse::Left) {
 		drawPreview = 1;
 		if (e.type == Event::MouseButtonPressed) {
-			startPos = (Vector2f)m.getPosition(window);
-			clampedPos = (Vector2f)LevelReader::clampToWorldCoords((Vector2i)startPos);
+			Vector2i mPos = m.getPosition(window);
+			startPos = Vector2i((mPos.x / tileSize) * tileSize, (mPos.y / tileSize) * tileSize);
 		}
 		else if (e.type == Event::MouseButtonReleased) {
-			Vector2f size = Vector2f(endPos.x - clampedPos.x,endPos.y - clampedPos.y);
-			ss.tiles.push_back(std::make_unique<Tile>(clampedPos, size));
-
-			ss.level.addBlock(Color(0, size.x, size.y),startPos, ss.totalScroll, size);
+			Vector2f size = Vector2f(endPos.x - startPos.x,
+				endPos.y - startPos.y);
+			ss.tiles.push_back(std::make_unique<Tile>((Vector2f)startPos, size));
+			ss.level.addBlock(Color(0, size.x, size.y),
+				(Vector2f)startPos, ss.totalScroll, size);
 			drawPreview = 0;
 		}
 	}
 	auto mPos = m.getPosition(window);
-	endPos = (Vector2f)LevelReader::clampToWorldCoords(mPos);
+	endPos = Vector2i((mPos.x / tileSize + 1) * tileSize , (mPos.y / tileSize + 1) * tileSize);
 }

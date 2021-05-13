@@ -2,8 +2,6 @@
 #include <iostream>
 #include "Tile.h"
 using namespace sf;
-
-int LevelReader::tileSize = 50;
 void LevelReader::loadLevel(std::string path, std::vector<std::unique_ptr<Entity>>& vec, int tileSize)
 {
 	this->tileSize = tileSize;
@@ -23,26 +21,6 @@ void LevelReader::addBlock(sf::Color c, sf::Vector2f pos, sf::Vector2f scroll, V
 	if (c.r == 0) level.setPixel((pos.x + scroll.x)/tileSize , (pos.y + scroll.y)/tileSize, 
 		Color(c.r, size.x/tileSize, size.y/tileSize));
 	level.saveToFile("levels/level1.png");
-}
-
-sf::Vector2i LevelReader::toTileCoords(sf::Vector2i vec, Vector2i offset)
-{
-	return sf::Vector2i(toTileCoords(vec.x) + offset.x,toTileCoords(vec.y) + offset.y);
-}
-
-sf::Vector2i LevelReader::clampToWorldCoords(sf::Vector2i vec, Vector2i offset )
-{
-	return sf::Vector2i(clampToWorldCoords(vec.x, offset.x),clampToWorldCoords(vec.y, offset.y));
-}
-
-int LevelReader::toTileCoords(float x, int offset)
-{
-	return x / tileSize + offset;
-}
-
-int LevelReader::clampToWorldCoords(float x, int offset)
-{
-	return (x / tileSize + offset) * tileSize;
 }
 
 std::unique_ptr<Entity> LevelReader::checkType(sf::Color c, int x, int y)
