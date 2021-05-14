@@ -8,17 +8,9 @@ Editor::Editor(SharedGameState& s)
 #include <iostream>
 void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
+	deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);
 	addBlocks(e, m, window);
-
-	if (m.isButtonPressed(Mouse::Right)) {
-		Vector2i mPos = m.getPosition(window);
-		for (int i = 0; i < ss.tiles.size(); i++) {
-			if (ss.tiles[i]->getCollisionBox().contains(mPos)) {
-				ss.tiles.erase(ss.tiles.begin() + i);
-				break;
-			}
-		}
-	}
+	removeBlocks(e, m, window);
 }
 
 void Editor::draw(sf::RenderWindow& window)
@@ -39,7 +31,6 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		drawPreview = 1;
 		if (e.type == Event::MouseButtonPressed) {
 			Vector2i mPos = m.getPosition(window);
-			deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);
 			startPos = LevelReader::clampToTile(mPos) - deltaPos;
 		}
 		else if (e.type == Event::MouseButtonReleased) {
@@ -51,4 +42,20 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 	}
 	auto mPos = m.getPosition(window);
 	endPos = LevelReader::clampToTile(mPos, { 1,1 }) - deltaPos;
+}
+
+void Editor::removeBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
+{
+	if (m.isButtonPressed(Mouse::Right)) {
+		Vector2i mPos = m.getPosition(window);
+		Vector2i tilePos;
+		for (int i = 0; i < ss.tiles.size(); i++) {
+			if (ss.tiles[i]->getCollisionBox().contains(mPos)) {
+				tilePos = (Vector2i)ss.tiles[i]->getCollisionBox().getPos();
+				ss.tiles.erase(ss.tiles.begin() + i);
+				break;
+			}
+		}
+		ss.level.removeBlock(tilePos, (Vector2i)ss.totalScroll);
+	}
 }

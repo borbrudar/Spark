@@ -8,6 +8,7 @@ public:
 	LevelReader() = default;
 	void loadLevel(std::string path, std::vector<std::unique_ptr<Entity>>& vec);
 	void addBlock(sf::Color c, sf::Vector2i pos, sf::Vector2i scroll, sf::Vector2i size);
+	void removeBlock(sf::Vector2i pos, sf::Vector2i scroll);
 
 	static sf::Vector2i clampToTile(sf::Vector2i pos, sf::Vector2i offset = { 0,0 });
 	static sf::Vector2i toTileCoords(sf::Vector2i pos, sf::Vector2i offset = { 0,0 });
