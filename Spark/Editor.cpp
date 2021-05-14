@@ -5,7 +5,7 @@ Editor::Editor(SharedGameState& s)
 {
 	ss = std::move(s);
 }
-
+#include <iostream>
 void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	addBlocks(e, m, window);
@@ -39,17 +39,18 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		drawPreview = 1;
 		if (e.type == Event::MouseButtonPressed) {
 			Vector2i mPos = m.getPosition(window);
-			orgPos = mPos;
-			startPos = Vector2i((mPos.x / tileSize) * tileSize, 
-				(mPos.y / tileSize) * tileSize);
+			deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);
+			startPos = Vector2i((mPos.x ) / tileSize * tileSize - deltaPos.x,
+				(mPos.y) / tileSize * tileSize - deltaPos.y);
 		}
 		else if (e.type == Event::MouseButtonReleased) {
-			Vector2f size = Vector2f(endPos.x - startPos.x,	endPos.y - startPos.y);
-			ss.tiles.push_back(std::make_unique<Tile>((Vector2f)startPos, size));
-			ss.level.addBlock(Color(0, size.x, size.y),	(Vector2f)orgPos, (Vector2f)ss.totalScroll, size);
+			Vector2i size = endPos - startPos;
+			ss.tiles.push_back(std::make_unique<Tile>((Vector2f)startPos,(Vector2f)size));
+			ss.level.addBlock(Color(0, size.x, size.y), startPos,(Vector2i)ss.totalScroll, size);
 			drawPreview = 0;
 		}
 	}
 	auto mPos = m.getPosition(window);
-	endPos = Vector2i((mPos.x / tileSize + 1) * tileSize , (mPos.y / tileSize + 1) * tileSize);
+	endPos = Vector2i(((mPos.x) / tileSize + 1) * tileSize - deltaPos.x,
+		((mPos.y )/ tileSize + 1) * tileSize - deltaPos.y);
 }

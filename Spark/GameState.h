@@ -11,7 +11,7 @@ struct SharedGameState {
 	std::vector<std::unique_ptr<Entity>> tiles;
 	std::vector<std::unique_ptr<Enemy>> enemies;
 	LevelReader level = LevelReader(tileSize);
-	sf::Vector2i totalScroll;
+	sf::Vector2f totalScroll;
 };
 
 class GameState {

@@ -7,7 +7,7 @@ class LevelReader {
 public:
 	LevelReader(int tileSize) : tileSize(tileSize) {};
 	void loadLevel(std::string path, std::vector<std::unique_ptr<Entity>>& vec, int tileSize);
-	void addBlock(sf::Color c, sf::Vector2f pos, sf::Vector2f scroll, sf::Vector2f size);
+	void addBlock(sf::Color c, sf::Vector2i pos, sf::Vector2i scroll, sf::Vector2i size);
 private:
 	std::unique_ptr<Entity> checkType(sf::Color c, int x, int y);
 	sf::Image level;

@@ -10,6 +10,6 @@ public:
 	void update(float delta) final;
 private:
 	void addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window);
-	sf::Vector2i startPos, endPos, orgPos;
+	sf::Vector2i startPos, endPos, deltaPos;
 	bool drawPreview = 0;
 };

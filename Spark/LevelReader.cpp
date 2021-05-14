@@ -15,10 +15,10 @@ void LevelReader::loadLevel(std::string path, std::vector<std::unique_ptr<Entity
 		}
 	}
 }
-
-void LevelReader::addBlock(sf::Color c, sf::Vector2f pos, sf::Vector2f scroll, Vector2f size)
+#include <iostream>
+void LevelReader::addBlock(sf::Color c, sf::Vector2i pos, sf::Vector2i scroll, Vector2i size)
 {
-	if (c.r == 0) level.setPixel((pos.x + scroll.x)/tileSize , (pos.y + scroll.y)/tileSize, 
+	if (c.r == 0) level.setPixel( (pos.x + scroll.x) / tileSize, (pos.y + scroll.y) / tileSize,
 		Color(c.r, size.x/tileSize, size.y/tileSize));
 	level.saveToFile("levels/level1.png");
 }
