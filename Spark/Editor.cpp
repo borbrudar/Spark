@@ -40,8 +40,7 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		if (e.type == Event::MouseButtonPressed) {
 			Vector2i mPos = m.getPosition(window);
 			deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);
-			startPos = Vector2i((mPos.x ) / tileSize * tileSize - deltaPos.x,
-				(mPos.y) / tileSize * tileSize - deltaPos.y);
+			startPos = LevelReader::clampToTile(mPos) - deltaPos;
 		}
 		else if (e.type == Event::MouseButtonReleased) {
 			Vector2i size = endPos - startPos;
@@ -51,6 +50,5 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		}
 	}
 	auto mPos = m.getPosition(window);
-	endPos = Vector2i(((mPos.x) / tileSize + 1) * tileSize - deltaPos.x,
-		((mPos.y )/ tileSize + 1) * tileSize - deltaPos.y);
+	endPos = LevelReader::clampToTile(mPos, { 1,1 }) - deltaPos;
 }
