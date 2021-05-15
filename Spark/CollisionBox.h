@@ -4,7 +4,7 @@
 struct collisionInfo {
 	bool inline isNoCollision() { return !(left || right || top || bottom); };
 	void inline reset() { left = 0; right = 0; top = 0; bottom = 0; };
-	collisionInfo operator+=(collisionInfo& rhs) {
+	collisionInfo operator+=(const collisionInfo& rhs)  {
 		left = left || rhs.left;
 		right = right || rhs.right;
 		top = top || rhs.top;

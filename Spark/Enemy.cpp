@@ -1,4 +1,6 @@
 #include "Enemy.h"
+#include "Tile.h"
+
 using namespace sf;
 Enemy::Enemy()
 {
@@ -12,4 +14,14 @@ void Enemy::update(float delta, sf::Vector2f scroll)
 {
 	Entity::update(delta, scroll);
 	pos.x -= 30 * delta;
+}
+
+void Enemy::specificCollision(Enemy& e)
+{
+
+}
+
+void Enemy::specificCollision(Tile& t)
+{
+	lastCol.operator+=(box.checkCollision(t.getCollisionBox()));
 }

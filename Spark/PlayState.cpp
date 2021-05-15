@@ -33,6 +33,7 @@ void PlayState::checkCollision(float delta)
 {
 	for (int i = 0; i < ss.tiles.size(); i++) {
 		ss.player.checkCollision(*ss.tiles[i]);
+		ss.tiles[0]->checkCollision(*ss.tiles[i]);
 		//for (int j = 0; j < enemies.size(); j++) enemies[j]->defaultResolveCollision(*tiles[i]);
 	}
 }

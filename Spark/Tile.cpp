@@ -20,6 +20,11 @@ void Tile::draw(sf::RenderWindow& window)
 	box.draw(window);
 }
 
+void Tile::checkCollision(Entity& e)
+{
+	e.specificCollision(*this);
+}
+
 void Tile::drawPreview(Vector2f leftCorner, Vector2f rightCorner, RenderWindow &window)
 {
 	ISprite temp;
