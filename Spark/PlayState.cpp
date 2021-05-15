@@ -22,18 +22,16 @@ void PlayState::update(float delta)
 	scroll.y = -ss.player.getDir().y * scrollSpeed;
 	ss.totalScroll -= Vector2f(scroll.x * delta, scroll.y * delta);
 
-	for (int i = 0; i < ss.tiles.size(); i++)
-		ss.tiles[i]->update(delta, scroll);
-	//for (int i = 0; i < enemies.size(); i++) enemies[i]->update(delta, scroll);
+	for (int i = 0; i < ss.entities.size(); i++)
+		ss.entities[i]->update(delta, scroll);
 
 	checkCollision(delta);
 }
 
 void PlayState::checkCollision(float delta)
 {
-	for (int i = 0; i < ss.tiles.size(); i++) {
-		ss.player.checkCollision(*ss.tiles[i]);
-		ss.tiles[0]->checkCollision(*ss.tiles[i]);
-		//for (int j = 0; j < enemies.size(); j++) enemies[j]->defaultResolveCollision(*tiles[i]);
+	for (int i = 0; i < ss.entities.size(); i++) {
+		ss.player.checkCollision(*ss.entities[i]);
+		ss.entities[0]->checkCollision(*ss.entities[i]);
 	}
 }

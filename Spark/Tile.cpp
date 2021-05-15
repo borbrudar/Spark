@@ -3,6 +3,7 @@ using namespace sf;
 
 Tile::Tile(sf::Vector2f pos, sf::Vector2f size)
 {
+	ID = ID::tile;
 	this->pos = pos;
 	this->size = size;
 	temp.setSprite(pos, size, Color::Green);

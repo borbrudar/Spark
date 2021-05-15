@@ -7,8 +7,7 @@
 
 struct SharedGameState {
 	Player player;
-	std::vector<std::unique_ptr<Entity>> tiles;
-	std::vector<std::unique_ptr<Enemy>> enemies;
+	std::vector<std::unique_ptr<Entity>> entities;
 	LevelReader level;
 	sf::Vector2f totalScroll;
 };

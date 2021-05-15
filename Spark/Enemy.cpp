@@ -2,12 +2,13 @@
 #include "Tile.h"
 
 using namespace sf;
-Enemy::Enemy()
+
+Enemy::Enemy(Vector2f pos, Vector2f size)
 {
+	this->pos = pos;
 	ID = ID::enemy;
-	pos = { 500,100 };
-	box.create(pos, { 50,50 });
-	temp.setSprite(pos, { 50,50 }, Color::Blue);
+	box.create(pos, size);
+	temp.setSprite(pos, size, Color::Blue);
 }
 
 void Enemy::update(float delta, sf::Vector2f scroll)

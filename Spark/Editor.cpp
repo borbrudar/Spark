@@ -21,8 +21,8 @@ void Editor::draw(sf::RenderWindow& window)
 
 void Editor::update(float delta)
 {
-	for(int i = 0; i < ss.tiles.size();i++)
-	ss.tiles[i]->update(delta, sf::Vector2f(0, 0));
+	for(int i = 0; i < ss.entities.size();i++)
+	ss.entities[i]->update(delta, sf::Vector2f(0, 0));
 }
 
 void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
@@ -35,7 +35,7 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		}
 		else if (e.type == Event::MouseButtonReleased) {
 			Vector2i size = endPos - startPos;
-			ss.tiles.push_back(std::make_unique<Tile>((Vector2f)startPos,(Vector2f)size));
+			ss.entities.push_back(std::make_unique<Tile>((Vector2f)startPos,(Vector2f)size));
 			ss.level.addBlock(Color(0, size.x, size.y), startPos,(Vector2i)ss.totalScroll, size);
 			drawPreview = 0;
 		}
@@ -49,10 +49,10 @@ void Editor::removeBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 	if (m.isButtonPressed(Mouse::Right)) {
 		Vector2i mPos = m.getPosition(window);
 		Vector2i tilePos;
-		for (int i = 0; i < ss.tiles.size(); i++) {
-			if (ss.tiles[i]->getCollisionBox().contains(mPos)) {
-				tilePos = (Vector2i)ss.tiles[i]->getCollisionBox().getPos();
-				ss.tiles.erase(ss.tiles.begin() + i);
+		for (int i = 0; i < ss.entities.size(); i++) {
+			if (ss.entities[i]->getCollisionBox().contains(mPos)) {
+				tilePos = (Vector2i)ss.entities[i]->getCollisionBox().getPos();
+				ss.entities.erase(ss.entities.begin() + i);
 				break;
 			}
 		}

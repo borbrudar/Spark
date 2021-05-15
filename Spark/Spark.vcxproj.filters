@@ -29,6 +29,9 @@
     <Filter Include="MainState\Game\PlayState\Entity\Collisionbox">
       <UniqueIdentifier>{5ce1b4ae-deb2-47a1-ac7f-49b9ba45c76b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity\Enemy">
+      <UniqueIdentifier>{3fc95f50-04a0-4e4c-b97f-e297a47cea6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp">
@@ -79,14 +82,14 @@
     <ClCompile Include="Tile.cpp">
       <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>MainState\Game\PlayState\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="AdvancedBox.cpp">
       <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
     </ClCompile>
     <ClCompile Include="CollisionBox.cpp">
       <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,14 +144,14 @@
     <ClInclude Include="Tile.h">
       <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>MainState\Game\PlayState\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="AdvancedBox.h">
       <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
     </ClInclude>
     <ClInclude Include="CollisionBox.h">
       <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>MainState\Game\PlayState\Entity\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
