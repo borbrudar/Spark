@@ -32,6 +32,8 @@ void PlayState::checkCollision(float delta)
 {
 	for (int i = 0; i < ss.entities.size(); i++) {
 		ss.player.checkCollision(*ss.entities[i]);
-		ss.entities[0]->checkCollision(*ss.entities[i]);
+		for (int j = 0; j < ss.entities.size(); j++) {
+			ss.entities[i]->checkCollision(*ss.entities[j]);
+		}
 	}
 }

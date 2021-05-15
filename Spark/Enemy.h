@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "AdvancedBox.h"
 
 class Tile;
 
@@ -12,4 +13,5 @@ private:
 	void specificCollision(Enemy& e) override;
 	void specificCollision(Tile& t) override;
 	collisionInfo lastCol = collisionInfo();
+	AdvancedBox advBox;
 };

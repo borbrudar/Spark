@@ -17,10 +17,10 @@ void AdvancedBox::create(sf::Vector2f pos, sf::Vector2f size)
 collisionInfo AdvancedBox::checkCollision(CollisionBox& other)
 {
 	collisionInfo inf;
-	if (box[0].getGlobalBounds().intersects(other.getBox()[0].getGlobalBounds())) inf.left = 1;
-	if (box[1].getGlobalBounds().intersects(other.getBox()[0].getGlobalBounds())) inf.right = 1;
-	if (box[2].getGlobalBounds().intersects(other.getBox()[0].getGlobalBounds())) inf.top = 1;
-	if (box[3].getGlobalBounds().intersects(other.getBox()[0].getGlobalBounds())) inf.bottom = 1;
+	if (box[0].getGlobalBounds().intersects(other.getBox().back().getGlobalBounds())) inf.left = 1;
+	if (box[1].getGlobalBounds().intersects(other.getBox().back().getGlobalBounds())) inf.right = 1;
+	if (box[2].getGlobalBounds().intersects(other.getBox().back().getGlobalBounds())) inf.top = 1;
+	if (box[3].getGlobalBounds().intersects(other.getBox().back().getGlobalBounds())) inf.bottom = 1;
 	return inf;
 }
 
