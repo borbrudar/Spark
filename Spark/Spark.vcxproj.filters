@@ -76,9 +76,6 @@
     <ClCompile Include="PlayerFalling.cpp">
       <Filter>MainState\Game\PlayState\Entity\Player</Filter>
     </ClCompile>
-    <ClCompile Include="LevelReader.cpp">
-      <Filter>MainState</Filter>
-    </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClCompile>
@@ -90,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>MainState\Game\PlayState\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelReader.cpp">
+      <Filter>MainState\Game\Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,9 +138,6 @@
     <ClInclude Include="GameState.h">
       <Filter>MainState\Game</Filter>
     </ClInclude>
-    <ClInclude Include="LevelReader.h">
-      <Filter>MainState</Filter>
-    </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClInclude>
@@ -152,6 +149,9 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>MainState\Game\PlayState\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelReader.h">
+      <Filter>MainState\Game\Editor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

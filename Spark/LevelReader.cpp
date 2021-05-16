@@ -4,17 +4,24 @@
 #include "Enemy.h"
 
 using namespace sf;
-void LevelReader::loadLevel(std::string path, std::vector<std::unique_ptr<Entity>>& vec)
+void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<Entity>>& vec, const sf::RenderWindow& window, sf::Vector2i tile)
 {
 	if (!level.loadFromFile(path)) std::cout << "cant load lvl\n";;
 
-	int sizeX = level.getSize().x, sizeY = level.getSize().y;
-	for (int x = 0; x < sizeX; x++) {
-		for (int y = 0; y < sizeY; y++) {
+	Vector2u worldSize = window.getSize();
+	int xTiles = worldSize.x / tileSize + 1, yTiles = worldSize.y / tileSize + 1;
+
+	Vector2i presetOffset = { 3,5 };
+	Vector2i startPos = tile - presetOffset;
+
+	for (int x = startPos.x; x < (startPos.x + xTiles); x++) {
+		for (int y = startPos.y; y < (startPos.y + yTiles); y++) {
 			if (!level.getPixel(x, y).a) continue;
-			vec.push_back(checkType(level.getPixel(x,y),x * tileSize, y * tileSize));
+			vec.push_back(checkType(level.getPixel(x, y), x * tileSize, y * tileSize));
 		}
 	}
+
+	isLoaded = 1;
 }
 void LevelReader::addBlock(sf::Color c, sf::Vector2i pos, sf::Vector2i scroll, Vector2i size)
 {
@@ -47,6 +54,11 @@ int LevelReader::clampToTile(int pos, int offset)
 int LevelReader::toTileCoords(int pos, int offset)
 {
 	return pos / tileSize + offset;
+}
+
+bool LevelReader::getLoaded() 
+{
+	return isLoaded;
 }
 
 
