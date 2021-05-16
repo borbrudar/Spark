@@ -42,16 +42,16 @@ void LevelReader::removeBlock(sf::Vector2i pos, sf::Vector2i scroll)
 }
 
 #include <iostream>
-void LevelReader::loadNextLine(bool isRight, std::vector<std::unique_ptr<Entity>>& vec, sf::Vector2f scroll)
+void LevelReader::loadNextLine(bool isRight, std::vector<std::unique_ptr<Entity>>& vec)
 {
 	if (isRight) {
-		loadLine(Vector2i(topRight.x + 1, topRight.y), vec,scroll);
+		loadLine(Vector2i(topRight.x + 1, topRight.y), vec);
 		deleteLine(topLeft, vec);
 		topLeft.x++; topRight.x++;
 		std::cout << "one right\n";
 	}
 	else {
-		loadLine(Vector2i(topLeft.x - 1, topLeft.y), vec, scroll);
+		loadLine(Vector2i(topLeft.x - 1, topLeft.y), vec);
 		deleteLine(topRight, vec);
 		topLeft.x--; topRight.x--;
 		std::cout << "one left\n";
@@ -93,14 +93,13 @@ std::unique_ptr<Entity> LevelReader::checkType(sf::Color c, sf::Vector2i tilePos
 	return nullptr;
 }
 
-void LevelReader::loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<Entity>>& vec, sf::Vector2f scroll)
+void LevelReader::loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<Entity>>& vec)
 {
-	for (int x = firstPos.x; x < (firstPos.x + 1); x++) {
+	for (int x = firstPos.x; x < firstPos.x + 1; x++) {
 		for (int y = firstPos.y; y < (firstPos.y + yTiles); y++) {
 			if (!level.getPixel(x, y).a) continue;
 			vec.push_back(checkType(level.getPixel(x, y),Vector2i(x,y), firstPos));
 			vec.back()->setPixelPos(Vector2i(firstPos.x + x,firstPos.y + y));
-			//vec.back()->setPos(vec.back()->getPos() + scroll);
 		}
 	}
 }

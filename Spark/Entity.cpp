@@ -3,7 +3,7 @@ using namespace sf;
 
 void Entity::update(float delta, Vector2f scroll)
 {
-	pos += scroll;
+	pos += scroll * delta;
 	temp.updatePos(pos);
 	box.setPosition(pos);
 }
@@ -26,14 +26,4 @@ void Entity::setPixelPos(sf::Vector2i pos)
 sf::Vector2i Entity::getPixelPos()
 {
 	return pixelPos;
-}
-
-void Entity::setPos(sf::Vector2f pos)
-{
-	this->pos = pos;
-}
-
-sf::Vector2f Entity::getPos()
-{
-	return pos;
 }

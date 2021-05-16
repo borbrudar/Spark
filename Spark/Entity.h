@@ -27,8 +27,6 @@ public:
 
 	void setPixelPos(sf::Vector2i pos);
 	sf::Vector2i getPixelPos();
-	void setPos(sf::Vector2f pos);
-	sf::Vector2f getPos();
 protected:
 	ID ID;
 	CollisionBox box;
