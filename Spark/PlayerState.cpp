@@ -6,7 +6,7 @@ PlayerState::vel = sf::Vector2f(0, 0);
 
 collisionInfo PlayerState::lastColInfo = collisionInfo();
 
-int PlayerState::ydir = 0;
+int PlayerState::xdir = 0, PlayerState::ydir = 0;
 
 PlayerState::PlayerState()
 {
@@ -18,9 +18,13 @@ PlayerState::PlayerState()
 void PlayerState::handleInput(sf::Event& e)
 {
 	if (e.type == Event::KeyPressed) {
+		if (e.key.code == Keyboard::Left) xdir = -1;
+		if (e.key.code == Keyboard::Right) xdir = 1;
 		if (e.key.code == Keyboard::Up) ydir = 1;
 	}
 	if (e.type == Event::KeyReleased) {
+		if (e.key.code == Keyboard::Left) xdir = 0;
+		if (e.key.code == Keyboard::Right) xdir = 0;
 		if (e.key.code == Keyboard::Up) ydir = 0;
 	}
 }
@@ -40,6 +44,11 @@ void PlayerState::checkCollision(Entity& e)
 		lastColInfo += temp;
 		lastCol = std::make_unique<Entity>(e);
 	}
+}
+
+sf::Vector2i PlayerState::getDir()
+{
+	return sf::Vector2i(xdir,0);
 }
 
 void PlayerState::updateBoxPosition()
