@@ -14,7 +14,6 @@ public:
 	virtual void draw(sf::RenderWindow& window);
 
 	void checkCollision(Entity& e);
-	sf::Vector2i getDir();
 protected:
 	void updateBoxPosition();
 	void horizontalCollision();
@@ -24,7 +23,7 @@ protected:
 	AdvancedBox box;
 	ISprite playerSprite;
 	ID ID = ID::player;
-	static int xdir, ydir;
+	static int ydir;
 	static sf::Vector2f pos, size, vel;
 
 	std::unique_ptr<Entity> lastCol;

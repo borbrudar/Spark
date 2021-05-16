@@ -25,4 +25,5 @@ protected:
 	const int tileSize = LevelReader::tileSize;
 	SharedGameState ss;
 	sf::Vector2f scroll;
+	int xdir = 0;
 };
