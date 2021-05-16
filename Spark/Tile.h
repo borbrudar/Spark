@@ -3,7 +3,7 @@
 
 class Tile : public Entity {
 public:
-	Tile(sf::Vector2f pos, sf::Vector2f size = { 150,50 });
+	Tile(sf::Vector2f pos, sf::Vector2f size);
 	void update(float delta, sf::Vector2f scroll) override;
 	void draw(sf::RenderWindow& window) override;
 	void checkCollision(Entity& e) override;

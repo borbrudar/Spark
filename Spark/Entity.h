@@ -24,9 +24,13 @@ public:
 		box.checkCollision(i.box);
 	}
 	CollisionBox& getCollisionBox();
+
+	void setPixelPos(sf::Vector2i pos);
+	sf::Vector2i getPixelPos();
 protected:
 	ID ID;
 	CollisionBox box;
 	ISprite temp;
-	sf::Vector2f pos{ 0, 0}, vel;
+	sf::Vector2f pos{ 0, 0 }, vel;
+	sf::Vector2i pixelPos;
 };

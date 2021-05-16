@@ -9,7 +9,7 @@ struct SharedGameState {
 	Player player;
 	std::vector<std::unique_ptr<Entity>> entities;
 	LevelReader level;
-	sf::Vector2f totalScroll;
+	sf::Vector2f totalScroll, loadScroll;
 };
 
 class GameState {

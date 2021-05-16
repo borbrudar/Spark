@@ -17,3 +17,13 @@ CollisionBox& Entity::getCollisionBox()
 {
 	return box;
 }
+
+void Entity::setPixelPos(sf::Vector2i pos)
+{
+	pixelPos = pos;
+}
+
+sf::Vector2i Entity::getPixelPos()
+{
+	return pixelPos;
+}

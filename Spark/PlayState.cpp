@@ -13,6 +13,14 @@ PlayState::PlayState(SharedGameState& s)
 void PlayState::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	ss.player.handleInput(e);
+	if (ss.loadScroll.x > tileSize) {
+		ss.loadScroll.x -= tileSize;
+		ss.level.loadNextLine(1, ss.entities);
+	}
+	if (ss.loadScroll.x < -tileSize) {
+		ss.loadScroll.x += tileSize;
+		ss.level.loadNextLine(0, ss.entities);
+	}
 }
 
 void PlayState::update(float delta)
@@ -21,6 +29,7 @@ void PlayState::update(float delta)
 	scroll.x = -ss.player.getDir().x * scrollSpeed;
 	scroll.y = -ss.player.getDir().y * scrollSpeed;
 	ss.totalScroll -= Vector2f(scroll.x * delta, scroll.y * delta);
+	ss.loadScroll -= Vector2f(scroll.x * delta, scroll.y * delta);
 
 	for (int i = 0; i < ss.entities.size(); i++)
 		ss.entities[i]->update(delta, scroll);
