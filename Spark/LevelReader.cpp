@@ -17,7 +17,7 @@ void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<
 	topLeft = startPos;
 	topRight.y = startPos.y;
 	leftSide = Vector2f( 0,0 );
-	rightSide = Vector2f( xTiles * tileSize,0 );
+	rightSide = Vector2f( (xTiles - 1) * tileSize,0 );
 
 	for (int x = startPos.x; x < (startPos.x + xTiles); x++) {
 		topRight.x = x;
