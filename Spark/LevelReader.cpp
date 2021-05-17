@@ -9,26 +9,18 @@ void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<
 	if (!level.loadFromFile(path)) std::cout << "cant load lvl\n";;
 
 	Vector2u worldSize = window.getSize();
-	xTiles = worldSize.x / tileSize;
-	yTiles = worldSize.y / tileSize;
+	xTiles = worldSize.x / tileSize  + extraWorld/2;
+	yTiles = worldSize.y / tileSize  + extraWorld/2;
 
 	Vector2i presetOffset = { 3,5 };
 	Vector2i startPos = tile - presetOffset;
-	topLeft = startPos;
+	topLeft = startPos - Vector2i(extraWorld / 2, extraWorld / 2);
 	topRight.y = startPos.y;
 	leftSide = Vector2f( 0,0 );
 	rightSide = Vector2f( (xTiles - 1) * tileSize,0 );
 
-	for (int x = startPos.x; x < (startPos.x + xTiles); x++) {
-		topRight.x = x;
-		for (int y = startPos.y; y < (startPos.y + yTiles); y++) {
-			Color c = level.getPixel(x, y);
-			if (!c.a) continue;
-			vec.push_back(checkType(c)); 
-			vec.back()->createEntity(Vector2f(x * tileSize, y * tileSize), Vector2f(c.g * tileSize, c.b * tileSize));
-			vec.back()->setPixelPos(Vector2i(x, y));
-		}
-	}
+	for (int x = startPos.x - extraWorld / 2; x < startPos.x + xTiles + extraWorld / 2; x++, topRight.x = x) 
+		loadLine(Vector2i(x, startPos.y), vec, Vector2f(x * tileSize, startPos.y));
 
 	isLoaded = 1;
 }
@@ -97,14 +89,14 @@ std::unique_ptr<Entity> LevelReader::checkType(sf::Color c)
 
 void LevelReader::loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<Entity>>& vec, sf::Vector2f startPos)
 {
-	if (firstPos.x < 0 || firstPos.x > level.getSize().x ||
-		firstPos.y < 0 || firstPos.y > level.getSize().y) {
+	int x = firstPos.x, y = firstPos.y;
+	if (x < 0 || x > level.getSize().x || y < 0 || y > level.getSize().y) {
 		std::cout << "Out of bounds\n";
 		return;
 	}
 
-	for (int x = firstPos.x; x < firstPos.x + 1; x++) {
-		for (int y = firstPos.y; y < (firstPos.y + yTiles); y++) {
+	for (; x < firstPos.x + 1; x++) {
+		for (; y < (firstPos.y + yTiles); y++) {
 			Color c = level.getPixel(x, y);
 			if (!c.a) continue;
 			vec.push_back(checkType(c));

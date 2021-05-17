@@ -28,4 +28,5 @@ private:
 	sf::Vector2i topLeft, topRight;
 	sf::Vector2f leftSide, rightSide;
 	int xTiles, yTiles;
+	int extraWorld = 0;
 };
