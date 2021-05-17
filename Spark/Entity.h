@@ -12,6 +12,7 @@ class Tile;
 class Entity {
 public:
 	Entity() = default;
+	virtual void createEntity(sf::Vector2f pos, sf::Vector2f size);
 	//adds scrolling and sprite update
 	virtual void update(float delta, sf::Vector2f scroll);
 	virtual void draw(sf::RenderWindow& window); 
@@ -31,6 +32,7 @@ protected:
 	ID ID;
 	CollisionBox box;
 	ISprite temp;
-	sf::Vector2f pos{ 0, 0 }, vel;
+	sf::Vector2f pos{ 0, 0 }, vel, size;
 	sf::Vector2i pixelPos;
+	sf::Color entityColor = sf::Color(255, 192, 203);
 };

@@ -1,6 +1,14 @@
 #include "Entity.h"
 using namespace sf;
 
+void Entity::createEntity(sf::Vector2f pos, sf::Vector2f size)
+{
+	this->pos = pos;
+	this->size = size;
+	temp.setSprite(pos, size, entityColor);
+	box.create(pos, size);
+}
+
 void Entity::update(float delta, Vector2f scroll)
 {
 	pos += scroll * delta;

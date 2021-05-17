@@ -35,7 +35,8 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		}
 		else if (e.type == Event::MouseButtonReleased) {
 			Vector2i size = endPos - startPos;
-			ss.entities.push_back(std::make_unique<Tile>((Vector2f)startPos,(Vector2f)size));
+			ss.entities.push_back(std::make_unique<Tile>());
+			ss.entities.back()->createEntity((Vector2f)startPos, (Vector2f)size);
 			ss.level.addBlock(Color(0, size.x, size.y), startPos,(Vector2i)ss.totalScroll, size);
 			drawPreview = 0;
 		}

@@ -15,11 +15,11 @@ void PlayState::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window
 	ss.player.handleInput(e);
 	if (ss.loadScroll.x > tileSize) {
 		ss.loadScroll.x -= tileSize;
-		ss.level.loadNextLine(1, ss.entities);
+		ss.level.loadNextLine(1, ss.entities, ss.loadScroll);
 	}
 	if (ss.loadScroll.x < -tileSize) {
 		ss.loadScroll.x += tileSize;
-		ss.level.loadNextLine(0, ss.entities);
+		ss.level.loadNextLine(0, ss.entities, ss.loadScroll);
 	}
 }
 

@@ -3,13 +3,15 @@
 
 using namespace sf;
 
-Enemy::Enemy(Vector2f pos, Vector2f size)
+Enemy::Enemy()
 {
-	this->pos = pos;
-	ID = ID::enemy;
-	box.create(pos, size);
+	entityColor = Color::Blue;
+}
+
+void Enemy::createEntity(sf::Vector2f pos, sf::Vector2f size)
+{
+	Entity::createEntity(pos, size);
 	advBox.create(pos, size);
-	temp.setSprite(pos, size, Color::Blue);
 }
 
 void Enemy::update(float delta, sf::Vector2f scroll)
