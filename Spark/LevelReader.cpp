@@ -21,13 +21,7 @@ void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<
 
 	for (int x = startPos.x; x < (startPos.x + xTiles); x++) {
 		topRight.x = x;
-		for (int y = startPos.y; y < (startPos.y + yTiles); y++) {
-			Color c = level.getPixel(x, y);
-			if (!c.a) continue;
-			vec.push_back(checkType(c)); 
-			vec.back()->createEntity(Vector2f(x * tileSize, y * tileSize), Vector2f(c.g * tileSize, c.b * tileSize));
-			vec.back()->setPixelPos(Vector2i(x, y));
-		}
+		loadLine(Vector2i(x, startPos.y), vec, Vector2f(x * tileSize, startPos.y));
 	}
 
 	isLoaded = 1;
