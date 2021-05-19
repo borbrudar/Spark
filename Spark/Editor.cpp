@@ -5,7 +5,7 @@ Editor::Editor(SharedGameState& s)
 {
 	ss = std::move(s);
 }
-#include <iostream>
+
 void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);

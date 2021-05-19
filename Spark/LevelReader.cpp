@@ -8,24 +8,26 @@ void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<
 {
 	if (!level.loadFromFile(path)) std::cout << "cant load lvl\n";;
 
+	//NOTE: the extra world buffering is not applied to the top of the map
 	Vector2u worldSize = window.getSize();
-	xTiles = worldSize.x / tileSize;
-	yTiles = worldSize.y / tileSize;
+	xTiles = worldSize.x / tileSize + extraWorld;
+	yTiles = worldSize.y / tileSize + extraWorld;
 
 	Vector2i presetOffset = { 3,5 };
 	Vector2i startPos = tile - presetOffset;
-	topLeft = startPos;
+	topLeft = Vector2i(startPos.x - extraWorld, startPos.y);
 	topRight.y = startPos.y;
-	leftSide = Vector2f( 0,0 );
-	rightSide = Vector2f( (xTiles - 1) * tileSize,0 );
+	leftSide = Vector2f( 0 - extraWorld * tileSize,0 );
+	rightSide = Vector2f( (xTiles - 1 + extraWorld) * tileSize,0 );
 
-	for (int x = startPos.x; x < (startPos.x + xTiles); x++) {
+	for (int x = startPos.x - extraWorld; x < (startPos.x + xTiles + extraWorld); x++) {
 		topRight.x = x;
 		loadLine(Vector2i(x, startPos.y), vec, Vector2f(x * tileSize, startPos.y));
 	}
 
 	isLoaded = 1;
 }
+
 void LevelReader::addBlock(sf::Color c, sf::Vector2i pos, sf::Vector2i scroll, Vector2i size)
 {
 	if (c.r == 0) level.setPixel( toTileCoords(pos.x + scroll.x), toTileCoords(pos.y + scroll.y),
@@ -39,20 +41,19 @@ void LevelReader::removeBlock(sf::Vector2i pos, sf::Vector2i scroll)
 	level.saveToFile("levels/level1.png");
 }
 
-#include <iostream>
-void LevelReader::loadNextLine(bool isRight, std::vector<std::unique_ptr<Entity>>& vec, sf::Vector2f scroll)
+void LevelReader::loadNextLine(sf::Vector2f &scroll, std::vector<std::unique_ptr<Entity>>& vec)
 {
-	if (isRight) {
+	if (scroll.x > tileSize) {
+		scroll.x -= tileSize;
 		loadLine(Vector2i(topRight.x + 1, topRight.y), vec, rightSide - scroll);
 		deleteLine(topLeft, vec);
 		topLeft.x++; topRight.x++;
-		std::cout << "one right\n";
 	}
-	else {
+	if (scroll.x < -tileSize) {
+		scroll.x += tileSize;
 		loadLine(Vector2i(topLeft.x - 1, topLeft.y), vec, leftSide - scroll);
 		deleteLine(topRight, vec);
 		topLeft.x--; topRight.x--;
-		std::cout << "one left\n";
 	}
 }
 
