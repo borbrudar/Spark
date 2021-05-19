@@ -22,7 +22,7 @@ public:
 	virtual void specificCollision(Enemy& e) {};
 
 	void inline defaultResolveCollision(Entity& i) {
-		box.checkCollision(i.box);
+		box->checkCollision(*i.box);
 	}
 	CollisionBox& getCollisionBox();
 
@@ -30,7 +30,7 @@ public:
 	sf::Vector2i getPixelPos();
 protected:
 	ID ID;
-	CollisionBox box;
+	std::shared_ptr<CollisionBox> box;
 	ISprite temp;
 	sf::Vector2f pos{ 0, 0 }, vel, size;
 	sf::Vector2i pixelPos;

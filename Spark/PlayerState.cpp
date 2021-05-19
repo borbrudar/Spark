@@ -42,7 +42,7 @@ void PlayerState::checkCollision(Entity& e)
 	collisionInfo temp = box.checkCollision(e.getCollisionBox());
 	if (!temp.isNoCollision()) {
 		lastColInfo += temp;
-		lastCol = std::make_unique<Entity>(e);
+		lastCol = std::make_shared<Entity>(e);
 	}
 }
 

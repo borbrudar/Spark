@@ -27,7 +27,7 @@ protected:
 	static int xdir, ydir;
 	static sf::Vector2f pos, size, vel;
 
-	std::unique_ptr<Entity> lastCol;
+	std::shared_ptr<Entity> lastCol;
 	static collisionInfo lastColInfo;
 
 	const float constGrav = 90.f;

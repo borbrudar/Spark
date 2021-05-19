@@ -5,6 +5,7 @@ using namespace sf;
 
 Enemy::Enemy()
 {
+	box = std::make_shared<AdvancedBox>();
 	entityColor = Color::Blue;
 }
 

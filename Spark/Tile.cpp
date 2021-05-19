@@ -4,17 +4,18 @@ using namespace sf;
 Tile::Tile()
 {
 	entityColor = Color::Green;
+	box = std::make_shared<CollisionBox>();
 }
 
 void Tile::update(float delta, Vector2f scroll)
 {
 	Entity::update(delta, scroll);
-	box.setPosition(pos);
+	box->setPosition(pos);
 }
 
 void Tile::draw(sf::RenderWindow& window)
 {
-	box.draw(window);
+	box->draw(window);
 }
 
 void Tile::checkCollision(Entity& e)
