@@ -51,8 +51,8 @@ void Editor::removeBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		Vector2i mPos = m.getPosition(window);
 		Vector2i tilePos;
 		for (int i = 0; i < ss.entities.size(); i++) {
-			if (ss.entities[i]->getCollisionBox().contains(mPos)) {
-				tilePos = (Vector2i)ss.entities[i]->getCollisionBox().getPos();
+			if (ss.entities[i]->box->contains(mPos)) {
+				tilePos = (Vector2i)ss.entities[i]->box->getPos();
 				ss.entities.erase(ss.entities.begin() + i);
 				break;
 			}

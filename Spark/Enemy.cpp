@@ -32,5 +32,5 @@ void Enemy::specificCollision(Enemy& e)
 
 void Enemy::specificCollision(Tile& t)
 {
-	lastCol += (advBox.checkCollision(t.getCollisionBox()));
+	lastCol += (advBox.checkCollision(*t.box));
 }

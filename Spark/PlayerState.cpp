@@ -39,7 +39,7 @@ void PlayerState::draw(sf::RenderWindow& window)
 
 void PlayerState::checkCollision(Entity& e)
 {
-	collisionInfo temp = box.checkCollision(e.getCollisionBox());
+	collisionInfo temp = box.checkCollision(*e.box);
 	if (!temp.isNoCollision()) {
 		lastColInfo += temp;
 		lastCol = std::make_shared<Entity>(e);

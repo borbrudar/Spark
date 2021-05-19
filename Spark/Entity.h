@@ -24,13 +24,13 @@ public:
 	void inline defaultResolveCollision(Entity& i) {
 		box->checkCollision(*i.box);
 	}
-	CollisionBox& getCollisionBox();
 
 	void setPixelPos(sf::Vector2i pos);
 	sf::Vector2i getPixelPos();
+
+	std::shared_ptr<CollisionBox> box = nullptr;
 protected:
 	ID ID;
-	std::shared_ptr<CollisionBox> box;
 	ISprite temp;
 	sf::Vector2f pos{ 0, 0 }, vel, size;
 	sf::Vector2i pixelPos;

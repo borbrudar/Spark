@@ -161,6 +161,7 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Spark.cpp" />
+    <ClCompile Include="VisualTile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdvancedBox.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Spark.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="VisualTile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

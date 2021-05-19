@@ -91,6 +91,9 @@
     <ClCompile Include="LevelReader.cpp">
       <Filter>MainState\Game\Editor</Filter>
     </ClCompile>
+    <ClCompile Include="VisualTile.cpp">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -152,6 +155,9 @@
     </ClInclude>
     <ClInclude Include="LevelReader.h">
       <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="VisualTile.h">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

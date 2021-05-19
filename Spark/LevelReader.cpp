@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Tile.h"
 #include "Enemy.h"
+#include "VisualTile.h"
 
 using namespace sf;
 void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<Entity>>& vec, const sf::RenderWindow& window, sf::Vector2i tile)
@@ -86,6 +87,7 @@ std::unique_ptr<Entity> LevelReader::checkType(sf::Color c)
 {
 	if(c.r == 0) return std::make_unique<Tile>();
 	if (c.r == 1) return std::make_unique<Enemy>();
+	if (c.r == 2) return std::make_unique<VisualTile>();
 	std::cout << "couldnt read tile type\n";
 	return nullptr;
 }

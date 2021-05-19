@@ -21,11 +21,6 @@ void Entity::draw(sf::RenderWindow& window)
 	temp.draw(window);
 }
 
-CollisionBox& Entity::getCollisionBox()
-{
-	return *box;
-}
-
 void Entity::setPixelPos(sf::Vector2i pos)
 {
 	pixelPos = pos;
