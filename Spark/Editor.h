@@ -1,5 +1,6 @@
 #pragma once
 #include "GameState.h"
+#include "Dropdown.h"
 
 class Editor : public GameState {
 public:
@@ -13,4 +14,6 @@ private:
 	void removeBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window);
 	sf::Vector2i startPos, endPos, deltaPos;
 	bool drawPreview = 0;
+
+	Dropdown typeSelection;
 };

@@ -4,6 +4,9 @@ using namespace sf;
 Editor::Editor(SharedGameState& s)
 {
 	ss = std::move(s);
+
+	std::vector<std::string> strings = { "bruh" , "Nibba", "Noice"};
+	typeSelection.create(Vector2f(550, 20), Vector2f(70, 35), strings);
 }
 
 void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
@@ -11,12 +14,14 @@ void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 	deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);
 	addBlocks(e, m, window);
 	removeBlocks(e, m, window);
+	typeSelection.click(m, window);
 }
 
 void Editor::draw(sf::RenderWindow& window)
 {
 	GameState::draw(window);
 	if (drawPreview) Tile::drawPreview((Vector2f)startPos, (Vector2f)endPos, window);
+	typeSelection.draw(window);
 }
 
 void Editor::update(float delta)

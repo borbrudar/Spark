@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="AdvancedBox.cpp" />
     <ClCompile Include="CollisionBox.cpp" />
+    <ClCompile Include="Dropdown.cpp" />
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="AdvancedBox.h" />
     <ClInclude Include="CollisionBox.h" />
+    <ClInclude Include="Dropdown.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />

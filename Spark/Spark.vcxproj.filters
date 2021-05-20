@@ -94,6 +94,9 @@
     <ClCompile Include="VisualTile.cpp">
       <Filter>MainState\Game\PlayState\Entity</Filter>
     </ClCompile>
+    <ClCompile Include="Dropdown.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -158,6 +161,9 @@
     </ClInclude>
     <ClInclude Include="VisualTile.h">
       <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Dropdown.h">
+      <Filter>MainState\Game\Editor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
