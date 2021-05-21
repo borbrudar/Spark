@@ -21,12 +21,11 @@ public:
 private:
 	bool isLoaded = 0;
 	std::unique_ptr<Entity> checkType(sf::Color c);
-	void loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<Entity>>& vec, sf::Vector2f startPos);
+	void loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<Entity>>& vec);
 	void deleteLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<Entity>>& vec);
 
 	sf::Image level;
 	sf::Vector2i topLeft, topRight;
-	sf::Vector2f leftSide, rightSide;
 	int xTiles, yTiles;
 	int extraWorld = 3;
 };

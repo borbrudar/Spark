@@ -7,7 +7,7 @@
 using namespace sf;
 void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<Entity>>& vec, const sf::RenderWindow& window, sf::Vector2i tile)
 {
-	if (!level.loadFromFile(path)) std::cout << "cant load lvl\n";;
+	if (!level.loadFromFile(path)) std::cout << "cant load lvl\n";
 
 	//NOTE: the extra world buffering is not applied to the top of the map
 	Vector2u worldSize = window.getSize();
@@ -18,12 +18,10 @@ void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<
 	Vector2i startPos = tile - presetOffset;
 	topLeft = Vector2i(startPos.x - extraWorld, startPos.y);
 	topRight.y = startPos.y;
-	leftSide = Vector2f( 0 - extraWorld * tileSize,0 );
-	rightSide = Vector2f( (xTiles - 1 + extraWorld) * tileSize,0 );
 
 	for (int x = startPos.x - extraWorld; x < (startPos.x + xTiles + extraWorld); x++) {
 		topRight.x = x;
-		loadLine(Vector2i(x, startPos.y), vec, Vector2f(x * tileSize, startPos.y));
+		loadLine(Vector2i(x, startPos.y), vec);
 	}
 
 	isLoaded = 1;
@@ -46,13 +44,13 @@ void LevelReader::loadNextLine(sf::Vector2f &scroll, std::vector<std::unique_ptr
 {
 	if (scroll.x > tileSize) {
 		scroll.x -= tileSize;
-		loadLine(Vector2i(topRight.x + 1, topRight.y), vec, rightSide - scroll);
+		loadLine(Vector2i(topRight.x + 1, topRight.y), vec);
 		deleteLine(topLeft, vec);
 		topLeft.x++; topRight.x++;
 	}
 	if (scroll.x < -tileSize) {
 		scroll.x += tileSize;
-		loadLine(Vector2i(topLeft.x - 1, topLeft.y), vec, leftSide - scroll);
+		loadLine(Vector2i(topLeft.x - 1, topLeft.y), vec);
 		deleteLine(topRight, vec);
 		topLeft.x--; topRight.x--;
 	}
@@ -92,7 +90,7 @@ std::unique_ptr<Entity> LevelReader::checkType(sf::Color c)
 	return nullptr;
 }
 
-void LevelReader::loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<Entity>>& vec, sf::Vector2f startPos)
+void LevelReader::loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<Entity>>& vec)
 {
 	if (firstPos.x < 0 || firstPos.x > level.getSize().x ||
 		firstPos.y < 0 || firstPos.y > level.getSize().y) {
@@ -105,7 +103,7 @@ void LevelReader::loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<En
 			Color c = level.getPixel(x, y);
 			if (!c.a) continue;
 			vec.push_back(checkType(c));
-			vec.back()->createEntity(Vector2f(startPos.x, startPos.y + y * tileSize), 
+			vec.back()->createEntity(Vector2f(x * tileSize, y * tileSize), 
 				Vector2f(c.g * tileSize,c.b * tileSize));
 			vec.back()->setPixelPos(Vector2i(x,y));
 		}
