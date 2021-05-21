@@ -159,6 +159,7 @@
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Spark.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Spark.h" />

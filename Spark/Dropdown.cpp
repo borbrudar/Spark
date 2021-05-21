@@ -9,6 +9,7 @@ void Dropdown::create(sf::Vector2f pos, sf::Vector2f size, const std::vector<std
 		shapes[i].setPosition(pos.x, pos.y + size.y * i);
 	}
 	strings = strs;
+	text.createRenderer();
 }
 
 std::string Dropdown::click(sf::Mouse& m, sf::RenderWindow &window)
@@ -31,9 +32,12 @@ std::string Dropdown::click(sf::Mouse& m, sf::RenderWindow &window)
 
 void Dropdown::draw(sf::RenderWindow& window)
 {
-	if (!isDropped) window.draw(shapes[0]);
-	else {
-		for (int i = 0; i < shapes.size(); i++)
-			window.draw(shapes[i]);
+	int max = isDropped ? strings.size() : 1;
+
+	for (int i = 0; i < max; i++) {
+		window.draw(shapes[i]);
+		text.setPosition(shapes[i].getPosition());
+		text.setString(strings[i]);
+		text.draw(window);
 	}
 }
