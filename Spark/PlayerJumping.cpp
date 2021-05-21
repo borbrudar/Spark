@@ -12,8 +12,9 @@ void PlayerJumping::handleInput(sf::Event& e)
     PlayerState::handleInput(e);
 }
 
-std::unique_ptr<PlayerState> PlayerJumping::update(float delta)
+std::unique_ptr<PlayerState> PlayerJumping::update(float delta, sf::Vector2f scroll)
 {
+    unscroll(scroll);
     PlayerState::basicBehaviour();
     positionUpdate(delta);
     

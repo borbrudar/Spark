@@ -13,20 +13,23 @@ PlayState::PlayState(SharedGameState& s)
 void PlayState::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	ss.player.handleInput(e);
-	ss.level.loadNextLine(ss.loadScroll, ss.entities);
-	
+	ss.level.loadNextLine(ss.loadScroll, ss.entities);	
 }
 
 void PlayState::update(float delta)
 {
-	ss.player.update(delta);
-	scroll.x = -ss.player.getDir().x * scrollSpeed;
-	scroll.y = -ss.player.getDir().y * scrollSpeed;
-	ss.totalScroll -= Vector2f(scroll.x * delta, scroll.y * delta);
-	ss.loadScroll -= Vector2f(scroll.x * delta, scroll.y * delta);
+	
+	scroll.x = ss.player.getDir().x * scrollSpeed * delta;
+	scroll.y = ss.player.getDir().y * scrollSpeed * delta;
+	ss.totalScroll += scroll;
+	ss.loadScroll += scroll;
+
+	ss.gameView.move(scroll);
+	ss.player.update(delta, scroll);
+
 
 	for (int i = 0; i < ss.entities.size(); i++)
-		ss.entities[i]->update(delta, scroll);
+		ss.entities[i]->update(delta);
 
 	checkCollision(delta);
 }

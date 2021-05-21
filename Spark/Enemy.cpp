@@ -9,16 +9,8 @@ Enemy::Enemy()
 	entityColor = Color::Blue;
 }
 
-void Enemy::createEntity(sf::Vector2f pos, sf::Vector2f size)
+void Enemy::update(float delta)
 {
-	Entity::createEntity(pos, size);
-	advBox.create(pos, size);
-}
-
-void Enemy::update(float delta, sf::Vector2f scroll)
-{
-	Entity::update(delta, scroll);
-	advBox.setPosition(pos);
 	pos.x -= 30 * delta;
 	if (!lastCol.bottom) pos.y += 90.f * delta;
 
@@ -32,5 +24,5 @@ void Enemy::specificCollision(Enemy& e)
 
 void Enemy::specificCollision(Tile& t)
 {
-	lastCol += (advBox.checkCollision(*t.box));
+	lastCol += (box->checkCollision(*t.box));
 }

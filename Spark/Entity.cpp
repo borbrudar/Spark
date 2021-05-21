@@ -9,11 +9,8 @@ void Entity::createEntity(sf::Vector2f pos, sf::Vector2f size)
 	box->create(pos, size);
 }
 
-void Entity::update(float delta, Vector2f scroll)
+void Entity::update(float delta)
 {
-	pos += scroll * delta;
-	temp.updatePos(pos);
-	box->setPosition(pos);
 }
 
 void Entity::draw(sf::RenderWindow& window)

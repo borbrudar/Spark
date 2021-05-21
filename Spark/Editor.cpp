@@ -27,7 +27,7 @@ void Editor::draw(sf::RenderWindow& window)
 void Editor::update(float delta)
 {
 	for(int i = 0; i < ss.entities.size();i++)
-	ss.entities[i]->update(delta, sf::Vector2f(0, 0));
+	ss.entities[i]->update(delta);
 }
 
 void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)

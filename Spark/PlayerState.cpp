@@ -74,3 +74,8 @@ void PlayerState::basicBehaviour()
 	horizontalCollision();
 	defaultResolveCollision();
 }
+
+void PlayerState::unscroll(sf::Vector2f scroll)
+{
+	pos += scroll;
+}

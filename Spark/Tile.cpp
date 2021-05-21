@@ -7,10 +7,8 @@ Tile::Tile()
 	box = std::make_shared<CollisionBox>();
 }
 
-void Tile::update(float delta, Vector2f scroll)
+void Tile::update(float delta)
 {
-	Entity::update(delta, scroll);
-	box->setPosition(pos);
 }
 
 void Tile::draw(sf::RenderWindow& window)

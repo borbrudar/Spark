@@ -5,5 +5,5 @@
 class PlayerFalling : public PlayerJumping {
 public:
 	PlayerFalling() { vel.y = -jumpConst / 3; };
-	std::unique_ptr<PlayerState> update(float delta) override;
+	std::unique_ptr<PlayerState> update(float delta, sf::Vector2f scroll) override;
 };

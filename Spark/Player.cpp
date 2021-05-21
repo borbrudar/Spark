@@ -11,9 +11,9 @@ void Player::handleInput(sf::Event& e)
 	playerState->handleInput(e);
 }
 
-void Player::update(float delta)
+void Player::update(float delta, sf::Vector2f scroll)
 {
-	auto temp = playerState->update(delta);
+	auto temp = playerState->update(delta, scroll);
 	if (temp) {
 		playerState = std::move(temp);
 	}

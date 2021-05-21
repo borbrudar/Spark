@@ -10,7 +10,7 @@ public:
 	PlayerState();
 	virtual ~PlayerState() {};
 	virtual void handleInput(sf::Event& e);
-	virtual std::unique_ptr<PlayerState> update(float delta) = 0;
+	virtual std::unique_ptr<PlayerState> update(float delta, sf::Vector2f scroll) = 0;
 	virtual void draw(sf::RenderWindow& window);
 
 	void checkCollision(Entity& e);
@@ -20,6 +20,7 @@ protected:
 	void horizontalCollision();
 	void defaultResolveCollision();
 	void basicBehaviour();
+	void unscroll(sf::Vector2f scroll);
 
 	AdvancedBox box;
 	ISprite playerSprite;

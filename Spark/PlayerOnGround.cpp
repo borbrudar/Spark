@@ -9,8 +9,9 @@ void PlayerOnGround::handleInput(sf::Event& e)
 	PlayerState::handleInput(e);
 }
 
-std::unique_ptr<PlayerState> PlayerOnGround::update(float delta)
+std::unique_ptr<PlayerState> PlayerOnGround::update(float delta, sf::Vector2f scroll)
 {
+	unscroll(scroll);
 	PlayerState::basicBehaviour();
 
 	if (ydir == 1) {

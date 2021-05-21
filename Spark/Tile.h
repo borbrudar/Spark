@@ -4,7 +4,7 @@
 class Tile : public Entity {
 public:
 	Tile();
-	void update(float delta, sf::Vector2f scroll) override;
+	void update(float delta) override;
 	void draw(sf::RenderWindow& window) override;
 	void checkCollision(Entity& e) override;
 

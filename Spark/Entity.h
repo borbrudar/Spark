@@ -14,7 +14,7 @@ public:
 	Entity() = default;
 	virtual void createEntity(sf::Vector2f pos, sf::Vector2f size);
 	//adds scrolling and sprite update
-	virtual void update(float delta, sf::Vector2f scroll);
+	virtual void update(float delta);
 	virtual void draw(sf::RenderWindow& window); 
 	virtual void checkCollision(Entity& e) {};
 

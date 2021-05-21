@@ -10,6 +10,7 @@ struct SharedGameState {
 	std::vector<std::unique_ptr<Entity>> entities;
 	LevelReader level;
 	sf::Vector2f totalScroll, loadScroll;
+	sf::View gameView = sf::View(sf::FloatRect(0.f,0.f, 640.f, 480.f));
 };
 
 class GameState {
