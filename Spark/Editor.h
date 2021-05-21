@@ -16,4 +16,6 @@ private:
 	bool drawPreview = 0;
 
 	Dropdown typeSelection;
+	sf::View editorView;
+	sf::RectangleShape gameRect;
 };

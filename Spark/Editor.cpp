@@ -5,23 +5,39 @@ Editor::Editor(SharedGameState& s)
 {
 	ss = std::move(s);
 
-	std::vector<std::string> strings = { "bruh" , "Nibba", "Noice"};
-	typeSelection.create(Vector2f(550, 20), Vector2f(70, 35), strings);
+	std::vector<std::string> strings = { "---" , "Tile", "Enemy"};
+	typeSelection.create(Vector2f(480, 20), Vector2f(70, 35), strings);
+
+	editorView.setCenter(565, 240);
+	editorView.setSize(150, 480);
+	editorView.setViewport(FloatRect(0.8f, 0.f, 0.2f, 1.f));
+
+	gameRect.setPosition(0, 0);
+	gameRect.setSize(Vector2f(490, 480));
 }
 
 void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);
-	addBlocks(e, m, window);
-	removeBlocks(e, m, window);
-	typeSelection.click(m, window);
+	//check if updating game editing or block selection
+	if (gameRect.getGlobalBounds().contains((Vector2f)m.getPosition(window))) {
+		addBlocks(e, m, window);
+		removeBlocks(e, m, window);
+	}
+	else {
+		typeSelection.click(m, window);
+	}
 }
 
 void Editor::draw(sf::RenderWindow& window)
 {
 	GameState::draw(window);
 	if (drawPreview) Tile::drawPreview((Vector2f)startPos, (Vector2f)endPos, window);
+
+	window.setView(editorView);
 	typeSelection.draw(window);
+
+	window.setView(window.getDefaultView());
 }
 
 void Editor::update(float delta)
