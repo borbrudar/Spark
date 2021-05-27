@@ -4,22 +4,16 @@ using namespace sf;
 Editor::Editor(SharedGameState& s)
 {
 	ss = std::move(s);
-
-	std::vector<std::string> strings = { "bruh" , "Nibba", "Noice"};
-	typeSelection.create(Vector2f(550, 20), Vector2f(70, 35), strings);
-
-	sideBarRect.setFillColor(sf::Color(255, 255, 255, 160));
-	sideBarRect.setPosition(Vector2f(490, 0));
 }
 
 void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	Vector2i mPos = m.getPosition(window);
-	if (!sideBarRect.getGlobalBounds().contains((Vector2f)mPos)) {
+	if (!sidebar.handleInput(e,m,window)) {
 		deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);
 		addBlocks(e, m, window);
 		removeBlocks(e, m, window);
-	}else 	typeSelection.click(m, window);
+	}else 	
 
 	scrollInput(e);
 	ss.level.loadNextLine(ss.loadScroll, ss.entities);
@@ -32,8 +26,7 @@ void Editor::draw(sf::RenderWindow& window)
 	
 
 	window.setView(ss.editorView);
-	window.draw(sideBarRect);
-	typeSelection.draw(window);
+	sidebar.draw(window);
 	window.setView(ss.gameView);
 }
 
