@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "TextRenderer.h"
+#include "Button.h"
 
 class Dropdown {
 public:
@@ -9,7 +10,6 @@ public:
 	void draw(sf::RenderWindow& window);
 private:
 	TextRenderer text;
-	std::vector<sf::RectangleShape> shapes;
-	std::vector<std::string> strings;
+	std::vector<Button> buttons;
 	bool isDropped = 0;
 };

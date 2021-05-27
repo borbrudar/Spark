@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AdvancedBox.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CollisionBox.cpp" />
     <ClCompile Include="Dropdown.cpp" />
     <ClCompile Include="Editor.cpp" />
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdvancedBox.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CollisionBox.h" />
     <ClInclude Include="Dropdown.h" />
     <ClInclude Include="Editor.h" />

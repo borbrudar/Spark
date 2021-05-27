@@ -103,6 +103,9 @@
     <ClCompile Include="EditorSidebar.cpp">
       <Filter>MainState\Game\Editor</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -175,6 +178,9 @@
       <Filter>MainState\Game\Editor</Filter>
     </ClInclude>
     <ClInclude Include="EditorSidebar.h">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
       <Filter>MainState\Game\Editor</Filter>
     </ClInclude>
   </ItemGroup>
