@@ -16,4 +16,5 @@ private:
 	bool drawPreview = 0;
 
 	Dropdown typeSelection;
+	sf::RectangleShape sideBarRect = sf::RectangleShape(sf::Vector2f(150, 480));
 };

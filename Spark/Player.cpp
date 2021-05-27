@@ -28,8 +28,3 @@ void Player::checkCollision(Entity& e)
 {
 	playerState->checkCollision(e);
 }
-
-Vector2i Player::getDir()
-{
-	return playerState->getDir();
-}

@@ -18,3 +18,25 @@ SharedGameState& GameState::getState()
 {
 	return ss;
 }
+
+void GameState::scrollInput(Event& e)
+{
+	if (e.type == Event::KeyPressed) {
+		if (e.key.code == Keyboard::Left) {
+			xdir = -1;
+		}
+		if (e.key.code == Keyboard::Right) xdir = 1;
+	}
+	if (e.type == Event::KeyReleased) {
+		if (e.key.code == Keyboard::Left) xdir = 0;
+		if (e.key.code == Keyboard::Right) xdir = 0;
+	}
+}
+
+void GameState::updateScroll(float delta)
+{
+ 	scroll.x = xdir * scrollSpeed * delta;
+	scroll.y = ydir * scrollSpeed * delta;
+	ss.totalScroll += scroll;
+	ss.loadScroll += scroll;
+}

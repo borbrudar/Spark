@@ -12,7 +12,6 @@ public:
 	void update(float delta, sf::Vector2f scroll);
 	void draw(sf::RenderWindow& window);
 	void checkCollision(Entity& e);
-	sf::Vector2i getDir();
 private:
 	std::unique_ptr<PlayerState> playerState;
 };

@@ -14,7 +14,6 @@ public:
 	virtual void draw(sf::RenderWindow& window);
 
 	void checkCollision(Entity& e);
-	sf::Vector2i getDir();
 protected:
 	void updateBoxPosition();
 	void horizontalCollision();
@@ -33,5 +32,4 @@ protected:
 
 	const float constGrav = 90.f;
 	float gravity = 90.f;
-
 };
