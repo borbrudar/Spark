@@ -8,15 +8,15 @@ Editor::Editor(SharedGameState& s)
 
 void Editor::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
+	scrollInput(e);
+
 	Vector2i mPos = m.getPosition(window);
 	if (!sidebar.handleInput(e,m,window)) {
 		deltaPos = Vector2i((int)ss.totalScroll.x % tileSize, (int)ss.totalScroll.y % tileSize);
 		addBlocks(e, m, window);
 		removeBlocks(e, m, window);
-	}else 	
-
-	scrollInput(e);
-	ss.level.loadNextLine(ss.loadScroll, ss.entities);
+	}	
+	
 }
 
 void Editor::draw(sf::RenderWindow& window)
@@ -32,6 +32,7 @@ void Editor::draw(sf::RenderWindow& window)
 
 void Editor::update(float delta)
 {
+	ss.level.loadNextLine(ss.loadScroll, ss.entities);
 	updateScroll(delta);
 	ss.gameView.move(scroll);
 	for(int i = 0; i < ss.entities.size();i++)
@@ -44,6 +45,7 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		drawPreview = 1;
 		if (e.type == Event::MouseButtonPressed) {
 			Vector2i mPos = m.getPosition(window);
+			mPos = (Vector2i)window.mapPixelToCoords(mPos,ss.gameView);
 			startPos = LevelReader::clampToTile(mPos) - deltaPos;
 		}
 		else if (e.type == Event::MouseButtonReleased) {
@@ -55,6 +57,7 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		}
 	}
 	auto mPos = m.getPosition(window);
+	mPos = (Vector2i)window.mapPixelToCoords(mPos,ss.gameView);
 	endPos = LevelReader::clampToTile(mPos, { 1,1 }) - deltaPos;
 }
 

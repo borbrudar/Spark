@@ -14,11 +14,11 @@ void PlayState::handleInput(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window
 {
 	scrollInput(e);
 	ss.player.handleInput(e);
-	ss.level.loadNextLine(ss.loadScroll, ss.entities);	
 }
 
 void PlayState::update(float delta)
 {
+	ss.level.loadNextLine(ss.loadScroll, ss.entities);
 	updateScroll(delta);
 
 	ss.gameView.move(scroll);
