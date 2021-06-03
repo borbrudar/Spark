@@ -3,7 +3,7 @@ using namespace sf;
 
 EditorSidebar::EditorSidebar() {
 
-	std::vector<std::string> strings = { "bruh" , "Nibba", "Noice" };
+	std::vector<std::string> strings = { "---", "Tile", "Enemy", "Visual" };
 	typeSelection.create(Vector2f(550, 20), Vector2f(70, 35), strings);
 
 	sideBarRect.setFillColor(sf::Color(255, 255, 255, 160));

@@ -45,20 +45,20 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		drawPreview = 1;
 		if (e.type == Event::MouseButtonPressed) {
 			Vector2i mPos = m.getPosition(window);
-			mPos = (Vector2i)window.mapPixelToCoords(mPos,ss.gameView);
-			startPos = LevelReader::clampToTile(mPos) - deltaPos;
+			startPos = LevelReader::clampToTile(mPos,window);
+			std::cout << startPos.x << std::endl;
 		}
 		else if (e.type == Event::MouseButtonReleased) {
 			Vector2i size = endPos - startPos;
 			ss.entities.push_back(std::make_unique<Tile>());
 			ss.entities.back()->createEntity((Vector2f)startPos, (Vector2f)size);
-			ss.level.addBlock(Color(0, size.x, size.y), startPos,(Vector2i)ss.totalScroll, size);
+			ss.level.addBlock(Color(0, size.x, size.y), startPos,window, size);
 			drawPreview = 0;
 		}
 	}
 	auto mPos = m.getPosition(window);
-	mPos = (Vector2i)window.mapPixelToCoords(mPos,ss.gameView);
-	endPos = LevelReader::clampToTile(mPos, { 1,1 }) - deltaPos;
+	endPos = LevelReader::clampToTile(mPos, window);//{1,1}
+	//add offset arg to clamptotile
 }
 
 void Editor::removeBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
@@ -73,6 +73,6 @@ void Editor::removeBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 				break;
 			}
 		}
-		ss.level.removeBlock(tilePos, (Vector2i)ss.totalScroll);
+		ss.level.removeBlock(tilePos,window);
 	}
 }

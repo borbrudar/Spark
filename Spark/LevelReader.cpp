@@ -27,16 +27,16 @@ void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<
 	isLoaded = 1;
 }
 
-void LevelReader::addBlock(sf::Color c, sf::Vector2i pos, sf::Vector2i scroll, Vector2i size)
+void LevelReader::addBlock(sf::Color c, sf::Vector2i pos, sf::RenderWindow& window, Vector2i size)
 {
-	if (c.r == 0) level.setPixel( toTileCoords(pos.x + scroll.x), toTileCoords(pos.y + scroll.y),
-		Color(c.r, toTileCoords(size.x), toTileCoords(size.y)));
+	if (c.r == 0) level.setPixel( toTileCoords(pos.x,window), toTileCoords(pos.y,window),
+		Color(c.r, toTileCoords(size.x,window), toTileCoords(size.y,window)));
 	level.saveToFile("levels/level1.png");
 }
 
-void LevelReader::removeBlock(sf::Vector2i pos, sf::Vector2i scroll)
+void LevelReader::removeBlock(sf::Vector2i pos, sf::RenderWindow &window)
 {
-	level.setPixel(toTileCoords(pos.x + scroll.x), toTileCoords(pos.y + scroll.y), Color(0, 0, 0, 0));
+	level.setPixel(toTileCoords(pos.x,window), toTileCoords(pos.y,window), Color(0, 0, 0, 0));
 	level.saveToFile("levels/level1.png");
 }
 
@@ -56,24 +56,25 @@ void LevelReader::loadNextLine(sf::Vector2f &scroll, std::vector<std::unique_ptr
 	}
 }
 
-sf::Vector2i LevelReader::clampToTile(sf::Vector2i pos, sf::Vector2i offset)
+int LevelReader::clampToTile(int pos, sf::RenderWindow& window)
 {
-	return sf::Vector2i(clampToTile(pos.x,offset.x), clampToTile(pos.y,offset.y));
+	return static_cast<int>(window.mapPixelToCoords({ pos,pos }).x) / tileSize * tileSize;
 }
 
-sf::Vector2i LevelReader::toTileCoords(sf::Vector2i pos, sf::Vector2i offset)
+int LevelReader::toTileCoords(int pos, sf::RenderWindow& window)
 {
-	return sf::Vector2i(toTileCoords(pos.x,offset.x),toTileCoords(pos.y,offset.y));
+	return static_cast<int>(window.mapPixelToCoords({ pos,pos }).x) / tileSize;
 }
 
-int LevelReader::clampToTile(int pos, int offset)
+
+Vector2i LevelReader::clampToTile(Vector2i pos, sf::RenderWindow& window)
 {
-	return pos / tileSize * tileSize + (offset * tileSize);
+	return Vector2i(clampToTile(pos.x,window), clampToTile(pos.y,window));
 }
 
-int LevelReader::toTileCoords(int pos, int offset)
+Vector2i LevelReader::toTileCoords(sf::Vector2i pos, sf::RenderWindow& window)
 {
-	return pos / tileSize + offset;
+	return Vector2i(toTileCoords(pos.x,window), toTileCoords(pos.y,window));
 }
 
 bool LevelReader::getLoaded() 
