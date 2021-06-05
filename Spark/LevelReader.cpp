@@ -67,14 +67,17 @@ int LevelReader::toTileCoords(int pos, sf::RenderWindow& window)
 }
 
 
-Vector2i LevelReader::clampToTile(Vector2i pos, sf::RenderWindow& window)
+Vector2i LevelReader::clampToTile(Vector2i pos, sf::RenderWindow& window, sf::Vector2i tileOffset)
 {
-	return Vector2i(clampToTile(pos.x,window), clampToTile(pos.y,window));
+	Vector2i mapped = static_cast<Vector2i>(window.mapPixelToCoords(Vector2i(pos.x + tileOffset.x * tileSize,
+		pos.y + tileOffset.y * tileSize)));
+	return Vector2i(mapped.x / tileSize * tileSize, mapped.y / tileSize * tileSize);
 }
 
 Vector2i LevelReader::toTileCoords(sf::Vector2i pos, sf::RenderWindow& window)
 {
-	return Vector2i(toTileCoords(pos.x,window), toTileCoords(pos.y,window));
+	Vector2i mapped = static_cast<Vector2i>(window.mapPixelToCoords(pos));
+	return Vector2i(mapped.x / tileSize, mapped.y / tileSize);
 }
 
 bool LevelReader::getLoaded() 

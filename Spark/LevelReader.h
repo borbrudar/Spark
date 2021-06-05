@@ -13,7 +13,7 @@ public:
 
 	static int clampToTile(int pos, sf::RenderWindow& window);
 	static int toTileCoords(int pos, sf::RenderWindow& window);
-	static sf::Vector2i clampToTile(sf::Vector2i pos, sf::RenderWindow &window);
+	static sf::Vector2i clampToTile(sf::Vector2i pos, sf::RenderWindow& window, sf::Vector2i tileOffset = { 0,0 });
 	static sf::Vector2i toTileCoords(sf::Vector2i pos, sf::RenderWindow& window);
 	bool getLoaded();
 

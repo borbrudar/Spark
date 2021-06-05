@@ -57,8 +57,7 @@ void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 		}
 	}
 	auto mPos = m.getPosition(window);
-	endPos = LevelReader::clampToTile(mPos, window);//{1,1}
-	//add offset arg to clamptotile
+	endPos = LevelReader::clampToTile(mPos, window, { 1,1 });
 }
 
 void Editor::removeBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
