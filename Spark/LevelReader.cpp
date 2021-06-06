@@ -30,14 +30,16 @@ void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<
 void LevelReader::addBlock(sf::Color c, sf::Vector2i pos, sf::RenderWindow& window, Vector2i size)
 {
 	if (c.r == 0) level.setPixel( toTileCoords(pos.x,window), toTileCoords(pos.y,window),
-		Color(c.r, toTileCoords(size.x,window), toTileCoords(size.y,window)));
+		Color(c.r, 1,1));
 	level.saveToFile("levels/level1.png");
+	level.loadFromFile("levels/level1.png");
 }
 
 void LevelReader::removeBlock(sf::Vector2i pos, sf::RenderWindow &window)
 {
 	level.setPixel(toTileCoords(pos.x,window), toTileCoords(pos.y,window), Color(0, 0, 0, 0));
 	level.saveToFile("levels/level1.png");
+	level.loadFromFile("levels/level1.png");
 }
 
 void LevelReader::loadNextLine(sf::Vector2f &scroll, std::vector<std::unique_ptr<Entity>>& vec)
@@ -108,7 +110,7 @@ void LevelReader::loadLine(sf::Vector2i firstPos, std::vector<std::unique_ptr<En
 			if (!c.a) continue;
 			vec.push_back(checkType(c));
 			vec.back()->createEntity(Vector2f(x * tileSize, y * tileSize), 
-				Vector2f(c.g * tileSize,c.b * tileSize));
+				Vector2f(tileSize,tileSize));
 			vec.back()->setPixelPos(Vector2i(x,y));
 		}
 	}

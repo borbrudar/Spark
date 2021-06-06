@@ -40,38 +40,42 @@ void Editor::update(float delta)
 }
 
 void Editor::addBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
-{
-	if (e.mouseButton.button == Mouse::Left) {
-		drawPreview = 1;
-		if (e.type == Event::MouseButtonPressed) {
+{	
+		if (m.isButtonPressed(Mouse::Left)) {
+			drawPreview = 1;
 			Vector2i mPos = m.getPosition(window);
 			startPos = LevelReader::clampToTile(mPos,window);
-			std::cout << startPos.x << std::endl;
+			endPos = LevelReader::clampToTile(mPos, window, { 1,1 });
+
+			//add if its empty
+			for (int i = 0; i < ss.entities.size(); i++)
+				if (ss.entities[i]->getPixelPos() == (Vector2i)LevelReader::toTileCoords(startPos, window)) return;
+
+			ss.entities.push_back(std::make_unique<Tile>());
+			ss.entities.back()->createEntity((Vector2f)startPos,
+				Vector2f(LevelReader::tileSize, LevelReader::tileSize));
+			ss.entities.back()->setPixelPos((Vector2i)LevelReader::toTileCoords(startPos, window));
+			ss.level.addBlock(Color(0, 50, 50), startPos, window, { 0,0 });
 		}
 		else if (e.type == Event::MouseButtonReleased) {
-			Vector2i size = endPos - startPos;
-			ss.entities.push_back(std::make_unique<Tile>());
-			ss.entities.back()->createEntity((Vector2f)startPos, (Vector2f)size);
-			ss.level.addBlock(Color(0, size.x, size.y), startPos,window, size);
 			drawPreview = 0;
 		}
-	}
-	auto mPos = m.getPosition(window);
-	endPos = LevelReader::clampToTile(mPos, window, { 1,1 });
+	
 }
 
 void Editor::removeBlocks(sf::Event& e, sf::Mouse& m, sf::RenderWindow& window)
 {
 	if (m.isButtonPressed(Mouse::Right)) {
 		Vector2i mPos = m.getPosition(window);
-		Vector2i tilePos;
+		mPos = (Vector2i)window.mapPixelToCoords(mPos);
+		Vector2i pos;
 		for (int i = 0; i < ss.entities.size(); i++) {
 			if (ss.entities[i]->box->contains(mPos)) {
-				tilePos = (Vector2i)ss.entities[i]->box->getPos();
+				pos = (Vector2i)ss.entities[i]->box->getPos();
 				ss.entities.erase(ss.entities.begin() + i);
 				break;
 			}
 		}
-		ss.level.removeBlock(tilePos,window);
+		ss.level.removeBlock(pos,window);
 	}
 }
