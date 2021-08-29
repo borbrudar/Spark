@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.16.0)
 project(Spark VERSION 0.1.0)
+set (CMAKE_CXX_STANDARD 17)
 
 include(CTest)
 enable_testing()
@@ -25,6 +26,7 @@ set(SOURCE_FILE_NAMES
     PlayerOnGround
     PlayerState
     PlayerState
+    PlayState
     Spark
     Tile 
     main
@@ -52,6 +54,7 @@ set(HEADER_FILE_NAMES
     PlayerOnGround
     PlayerState
     PlayerState
+    PlayState
     Spark
     Tile 
     State

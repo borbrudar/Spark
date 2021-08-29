@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <typeinfo>
 #include <iostream>
 using namespace sf;
 

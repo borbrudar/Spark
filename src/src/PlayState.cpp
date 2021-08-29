@@ -3,9 +3,9 @@ using namespace sf;
 
 PlayState::PlayState()
 {
-	//ss.tiles.push_back(std::make_unique<Tile>(Vector2f(50, 400)));
-	//ss.tiles.push_back(std::make_unique<Tile>(Vector2f(200, 350)));
-	//ss.tiles.push_back(std::make_unique<Tile>(Vector2f(270, 170)));
+	ss.tiles.push_back(std::make_unique<Tile>(Vector2f(50, 400)));
+	ss.tiles.push_back(std::make_unique<Tile>(Vector2f(200, 350)));
+	ss.tiles.push_back(std::make_unique<Tile>(Vector2f(270, 170)));
 }
 
 PlayState::PlayState(SharedGameState& s)

@@ -3,7 +3,6 @@
 #include "PlayState.h"
 #include "Editor.h"
 
-
 enum class stateID{
 	play,
 	edit
