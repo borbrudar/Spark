@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="MainState">
+      <UniqueIdentifier>{a30c8177-a080-4025-b5ef-d79a923c359a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Menu">
+      <UniqueIdentifier>{6f627c42-4a2d-4efd-b86d-30fc3e5edc2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game">
+      <UniqueIdentifier>{90502fb7-e147-4bb9-9484-2f3e28c0e382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState">
+      <UniqueIdentifier>{349359f9-f0d3-4205-b3a1-dc00e93abac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\Editor">
+      <UniqueIdentifier>{db37ce63-e2b2-4143-af9c-b7394791916e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity">
+      <UniqueIdentifier>{8f966f40-56bd-4c01-85bb-fe5311659d4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity\Player">
+      <UniqueIdentifier>{66a90507-0c45-4e42-a8de-ef0f4c2454f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity\Collisionbox">
+      <UniqueIdentifier>{5ce1b4ae-deb2-47a1-ac7f-49b9ba45c76b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainState\Game\PlayState\Entity\Enemy">
+      <UniqueIdentifier>{3fc95f50-04a0-4e4c-b97f-e297a47cea6a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entity.cpp">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>MainState</Filter>
+    </ClCompile>
+    <ClCompile Include="Spark.cpp">
+      <Filter>MainState</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>MainState\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>MainState\Game\PlayState</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>MainState\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="ISprite.cpp">
+      <Filter>MainState\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumping.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerOnGround.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>MainState\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFalling.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="AdvancedBox.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionBox.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>MainState\Game\PlayState\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelReader.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="VisualTile.cpp">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Dropdown.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorSidebar.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entity.h">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Spark.h">
+      <Filter>MainState</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>MainState</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>MainState\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>MainState\Game\PlayState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>MainState\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor.h">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="ISprite.h">
+      <Filter>MainState\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumping.h">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerOnGround.h">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ID.h">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFalling.h">
+      <Filter>MainState\Game\PlayState\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>MainState\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="AdvancedBox.h">
+      <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionBox.h">
+      <Filter>MainState\Game\PlayState\Entity\Collisionbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>MainState\Game\PlayState\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelReader.h">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="VisualTile.h">
+      <Filter>MainState\Game\PlayState\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Dropdown.h">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorSidebar.h">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>MainState\Game\Editor</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
