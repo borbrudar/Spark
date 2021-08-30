@@ -29,7 +29,7 @@ void CollisionBox::draw(sf::RenderWindow& window)
 void CollisionBox::defaultResolveCollision()
 {
 	pos = prevPos;
-}
+}	
 
 void CollisionBox::move(sf::Vector2f by)
 {
