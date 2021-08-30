@@ -70,9 +70,12 @@ target_include_directories(Spark PRIVATE ${PROJECT_SOURCE_DIR}/src/include/)
 #-----------------------------------------------------
 #---------ADD SFML LIBRARY----------------------------
 
+
+set(SFML_DIR ${PROJECT_SOURCE_DIR}/libs/SFML/cmake/)
+
 find_package(SFML 2.5.1
-  COMPONENTS 
-    system window graphics network audio REQUIRED)
+COMPONENTS 
+system window graphics network audio REQUIRED)
 
 target_link_libraries(Spark sfml-graphics sfml-audio)
 
