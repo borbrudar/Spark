@@ -71,8 +71,8 @@ target_include_directories(Spark PRIVATE ${PROJECT_SOURCE_DIR}/src/include/)
 #---------ADD SFML LIBRARY----------------------------
 
 set(SFML_DIR ${PROJECT_SOURCE_DIR}/libs/SFML/)
-#target_include_directories(Spark PRIVATE ${PROJECT_SOURCE_DIR}/libs/SFML/include/)
-#link_directories(${PROJECT_SOURC_DIR}/libs/SFML/lib/)
+target_include_directories(Spark PRIVATE ${PROJECT_SOURCE_DIR}/libs/SFML/include/)
+link_directories(${PROJECT_SOURC_DIR}/libs/SFML/lib/)
 
 find_package(SFML 2.5.1
 COMPONENTS 
