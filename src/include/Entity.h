@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include <SFML/Graphics.hpp>
 #include "ISprite.h"
 #include "CollisionBox.h"
@@ -30,7 +31,7 @@ public:
 
 	std::shared_ptr<CollisionBox> box = nullptr;
 protected:
-	ID ID;
+	ID id;
 	ISprite temp;
 	sf::Vector2f pos{ 0, 0 }, vel, size;
 	sf::Vector2i pixelPos;

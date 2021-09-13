@@ -5,17 +5,21 @@ set (CMAKE_CXX_STANDARD 17)
 include(CTest)
 enable_testing()
 
-
-
 #---------ADD SOURCE AND HEADER FILES ---------------
 set(SOURCE_FILE_NAMES
+    AdvancedBox
     CollisionBox
+    TextRenderer
+    Button
+    Dropdown
     Editor
+    EditorSidebar
     Enemy
     Entity 
     Game 
     GameState 
     ISprite 
+    LevelReader
     Menu 
     Player
     PlayerFalling
@@ -26,6 +30,7 @@ set(SOURCE_FILE_NAMES
     PlayState
     Spark
     Tile 
+    VisualTile
     main
 )
 
@@ -34,13 +39,19 @@ list(TRANSFORM SOURCE_FILE_NAMES PREPEND "src/src/")
 
 
 set(HEADER_FILE_NAMES
+    AdvancedBox
     CollisionBox
+    TextRenderer
+    Button
+    Dropdown
     Editor
+    EditorSidebar
     Enemy
     Entity 
     Game 
     GameState 
     ISprite 
+    LevelReader
     Menu 
     Player
     PlayerFalling
@@ -51,15 +62,22 @@ set(HEADER_FILE_NAMES
     Spark
     Tile 
     State
+    VisualTile
 )
 
 list(TRANSFORM HEADER_FILE_NAMES APPEND ".h")
 list(TRANSFORM HEADER_FILE_NAMES PREPEND "src/include/")
 
 
+configure_file(SparkConfig.h.in SparkConfig.h)
+
 add_executable(Spark ${SOURCE_FILE_NAMES} ${HEADER_FILE_NAMES})
 
 target_include_directories(Spark PRIVATE ${PROJECT_SOURCE_DIR}/src/include/)
+
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
+
+
 #-----------------------------------------------------
 #---------ADD SFML LIBRARY----------------------------
 
