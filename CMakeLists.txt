@@ -15,11 +15,8 @@ set(SOURCE_FILE_NAMES
     Entity 
     Game 
     GameState 
-    ImmovableEntity 
-    Interactive 
     ISprite 
     Menu 
-    MovableEntity
     Player
     PlayerFalling
     PlayerJumping
@@ -43,16 +40,12 @@ set(HEADER_FILE_NAMES
     Entity 
     Game 
     GameState 
-    ImmovableEntity 
-    Interactive 
     ISprite 
     Menu 
-    MovableEntity
     Player
     PlayerFalling
     PlayerJumping
     PlayerOnGround
-    PlayerState
     PlayerState
     PlayState
     Spark
@@ -70,9 +63,9 @@ target_include_directories(Spark PRIVATE ${PROJECT_SOURCE_DIR}/src/include/)
 #-----------------------------------------------------
 #---------ADD SFML LIBRARY----------------------------
 
+add_subdirectory(libs/SFML)
 set(SFML_DIR ${PROJECT_SOURCE_DIR}/libs/SFML/)
 target_include_directories(Spark PRIVATE ${PROJECT_SOURCE_DIR}/libs/SFML/include/)
-link_directories(${PROJECT_SOURC_DIR}/libs/SFML/lib/)
 
 find_package(SFML 2.5.1
 COMPONENTS 
