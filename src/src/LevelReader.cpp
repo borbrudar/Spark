@@ -4,10 +4,12 @@
 #include "Enemy.h"
 #include "VisualTile.h"
 
+
 using namespace sf;
 void LevelReader::loadLevel(const std::string path, std::vector<std::unique_ptr<Entity>>& vec, const sf::RenderWindow& window, sf::Vector2i tile)
 {
 	if (!level.loadFromFile(path)) std::cout << "cant load lvl\n";
+	respath = path;
 
 	//NOTE: the extra world buffering is not applied to the top of the map
 	Vector2u worldSize = window.getSize();
@@ -31,15 +33,15 @@ void LevelReader::addBlock(sf::Color c, sf::Vector2i pos, sf::RenderWindow& wind
 {
 	if (c.r == 0) level.setPixel( toTileCoords(pos.x,window), toTileCoords(pos.y,window),
 		Color(c.r, 1,1));
-	level.saveToFile("levels/level1.png");
-	level.loadFromFile("levels/level1.png");
+	level.saveToFile(respath);
+	level.loadFromFile(respath);
 }
 
 void LevelReader::removeBlock(sf::Vector2i pos, sf::RenderWindow &window)
 {
 	level.setPixel(toTileCoords(pos.x,window), toTileCoords(pos.y,window), Color(0, 0, 0, 0));
-	level.saveToFile("levels/level1.png");
-	level.loadFromFile("levels/level1.png");
+	level.saveToFile(respath);
+	level.loadFromFile(respath);
 }
 
 void LevelReader::loadNextLine(sf::Vector2f &scroll, std::vector<std::unique_ptr<Entity>>& vec)

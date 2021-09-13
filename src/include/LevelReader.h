@@ -28,4 +28,5 @@ private:
 	sf::Vector2i topLeft, topRight;
 	int xTiles, yTiles;
 	int extraWorld = 3;
+	std::string respath;
 };
